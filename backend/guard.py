@@ -491,7 +491,8 @@ def leaks_prompt(reply,prompts=()):
     got=_shingles(reply)
     for p in prompts:
         key=hash(p)
-        if key not in _PROMPT_SHINGLES:_PROMPT_SHINGLES[key]=_shingles(p)
+        # «quoted» phrases in a prompt are user-facing wording the model is told to say; echoing them is not a leak.
+        if key not in _PROMPT_SHINGLES:_PROMPT_SHINGLES[key]=_shingles(re.sub(r'«[^»]*»',' ',str(p)))
         if len(got&_PROMPT_SHINGLES[key])>=2:return True
     return False
 

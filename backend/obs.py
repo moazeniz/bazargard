@@ -9,7 +9,7 @@ to JSON lines too, so stdout stays machine-readable for Liara/Negahban.
 import contextvars,hashlib,io,json,logging,os,re,secrets,sys,threading,time,traceback
 from datetime import datetime,timezone
 
-APP='bazargard';RELEASE='4.4.1'
+APP='bazargard';RELEASE='4.4.2'
 LEVELS={'debug':10,'info':20,'warn':30,'error':40,'critical':50}
 request_id=contextvars.ContextVar('request_id',default=None)
 trace_id=contextvars.ContextVar('trace_id',default=None)
