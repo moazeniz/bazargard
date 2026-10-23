@@ -405,7 +405,6 @@ Cost note: the turn used about 393k input tokens and 1.2k output tokens. Multi-h
 | Persian, RTL, mobile | Persian-first, RTL, Vazirmatn font. Bottom navigation on mobile. Tested at 390 px with no overflow. | ✅ |
 | Use the Torob dataset | All 3 tables fully imported, with integrity checks: SHA-256 of the CSVs and no orphan offers. | ✅ |
 | Deploy (Liara suggested) | Docker app on Liara with a persistent disk and first-boot catalogue seeding. | ✅ (4.1.0 live) |
-| Deliverables: about 5-minute demo video and GitHub repo | Demo script in Persian (`DEMO_SCRIPT_FA.txt`). The repo has been restructured for publication. | 🚧 |
 
 ---
 
@@ -459,7 +458,6 @@ Without model keys, catalogue search, filters, comparison, maps, plans, seller d
 | Full automated suite (release 4.1.0 source), real 430 MB catalogue | **361 passed in 168 s** (2026-10-22, 18:09–18:11 UTC; 28 test files, attack classes parametrised). Earlier runs: 318 passed (4.0.0, 15:34 UTC) and 207 passed before the guard tests landed. |
 | Guard tests (`test_guard.py`, `test_guard_api.py`) | **111 passed in 9.8 s** (4.0.0 run) |
 | Red-team run (`redteam/REPORT.md`, staging copy with poisoned data) | Hardened **106/106** checks passed (104 attacks, 2 false-positive checks), across 27 categories including indirect injection through web pages, PDFs, reviews and images, SSRF, CSRF, XSS and session isolation. Baseline with the guard disabled: **50/86** model-facing checks. |
-| Live demo walkthrough on Liara (4.1.0, Playwright, 2026-10-22 ~21:15–21:40 Tehran) | Multi-step chat answer in about 32 s. 5-product comparison with web completion in 87 s (91% of cells filled, 32 from the web). Buyer reviews about 35 s on first fetch. Web alternatives: 9 listings from 8 pages. Plan: 35.1 km, 47 min road time. Injection sequence closed the chat (refuse → warn → terminate). 0 page errors; no horizontal overflow at 390 px. Script: [DEMO_VIDEO_SCRIPT.fa.md](DEMO_VIDEO_SCRIPT.fa.md). |
 | Live Liara UI tour (Playwright, desktop and mobile) | 5 pages rendered, 24 result cards per page, 7 map pins for the sample query, plan totals computed, **0 page errors**, no horizontal overflow at 390 px |
 | Real BoxAPI multi-hop chat (dev) | 10 rounds, 11 tool calls, 54 s, correct grounded answer with citations (§6.3) |
 | Real guard escalation (dev) | refuse → warn → terminate → HTTP 423, with 0 model tokens spent on blocked turns (§7.1) |
