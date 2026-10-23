@@ -15,7 +15,7 @@ from catalog import ClosingConnection,normalize
 
 VALID={'merchant_link':7*86400,'web_verified':3*86400,'crowd':3*86400}   # how long an update replaces the dataset price
 RANK={'merchant_link':3,'web_verified':2,'crowd':1}
-LINK_TTL=7*86400;STALE_DAYS=30;ESTIMATE_DAYS=21
+LINK_TTL=7*86400;STALE_DAYS=30;ESTIMATE_DAYS=30
 CHANNEL_LABEL={'website':'سایت فروشگاه','instagram':'دایرکت اینستاگرام','whatsapp':'واتس‌اپ','telegram':'تلگرام','bale':'بله','sms':'پیامک'}
 
 def monthly_drift():
@@ -33,7 +33,8 @@ def estimate(price,age,siblings=()):
     """Today's likely price range for a stale listing; None when the listing is recent enough."""
     if not price or age is None or age<ESTIMATE_DAYS:return None
     drift=(1+monthly_drift())**(age/30)
-    recent=sorted(p for p,a in siblings if p and a is not None and a<STALE_DAYS)
+    # Other sellers' recent prices of the same product; very different listings (fakes, bundles, typos) are ignored.
+    recent=sorted(p for p,a in siblings if p and a is not None and a<STALE_DAYS and .6*price<=p<=1.8*price)
     base=price*drift
     if len(recent)>=2:
         ref=statistics.median(recent);gap=abs(ref-base)/base
@@ -43,7 +44,7 @@ def estimate(price,age,siblings=()):
     else:
         low,high=price*(1+monthly_drift()/2)**(age/30),base*1.06;confidence='low'
         basis='فقط تغییر قیمت عمومی از زمان ثبت؛ قیمت تازه‌ای از فروشندهٔ دیگر نبود'
-    low,high=round(low,-3),round(max(high,low),-3)
+    low,high=round(max(low,price*.85),-3),round(min(max(high,low),price*drift*1.25),-3)
     label={'high':'اطمینان بالا','medium':'اطمینان متوسط','low':'اطمینان کم'}[confidence]
     return {'low':low,'high':high,'confidence':confidence,'confidence_label':label,'basis':basis,'age_days':round(age),
             'text':f'برآورد امروز {fa(low)} تا {fa(high)} تومان ({label}) — قیمت فروشنده نیست'}
@@ -321,7 +322,7 @@ class Freshness:
         if not page or not (page==host or page.endswith('.'+host)):return {'ok':False,'status':'not_on_shop_site'}
         if cited and url not in cited and not any(str(c).startswith(url.split('?')[0]) for c in cited if c):return {'ok':False,'status':'url_not_cited'}
         title=normalize(str(data.get('title') or ''));want=normalize(o['persian_title'])
-        codes=[t for t in re.findall(r'[a-z0-9]+',want) if re.search(r'\d',t) and len(t)>=2]
+        codes=[t for t in re.findall(r'[a-z0-9]+',want) if len(t)>=2 and (re.search(r'\d',t) or len(t)>=3)]  # model codes and Latin model words
         words=[t for t in want.split() if len(t)>=3]
         if codes and not all(c in title for c in codes):return {'ok':False,'status':'different_model'}
         if not codes and (not words or sum(w in title for w in words)/len(words)<.6):return {'ok':False,'status':'different_product'}

@@ -73,4 +73,5 @@ Each row links a judging criterion or brief requirement to the feature that answ
 | Contact preparation and reaction to failure | Follow-up kit, seller reply link, user-reported replies, alternatives after «closed/no answer» | `tests/test_seller_scenarios.py`, `tests/test_polish.py` |
 | Visit planning | Plan page, timing, map, offline trip pass | `docs/evidence/desktop-plan.png`, `desktop-map.png` |
 | Memory | Trip and permanent preferences, deletable | `tests/test_contracts.py` |
+| Prices sellers do not update («تازه‌سازی قیمت») | One-tap signed seller link (no login) → «قیمت تأییدشده امروز» in search, plan and tracker; refresh queue (age × demand × uncertainty × visit); shopper reports with agreement; shop-website price check with verification; «برآورد امروز» range with confidence | `docs/PRICE_FRESHNESS.md`, `tests/test_freshness.py`, `tools/ui/ui_fresh.py` |
 | No fabricated data | Quote-verified web facts, labelled simulations, synthetic-identity labels | BENCHMARK §3–4, `docs/DATASET.md` |

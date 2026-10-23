@@ -14,6 +14,7 @@ export function FollowUpChannels({c,sid}){
  async function copy(){try{await copyText(msg);setNote('متن پیام کپی شد؛ در پیام‌رسان بچسبانید.')}catch{setNote('متن بالا را انتخاب و کپی کنید.')}}
  async function openReal(ch){try{await copyText(msg);setNote('متن پیام کپی شد؛ در '+ch.label.replace('پیام در ','')+' بچسبانید و بفرستید.')}catch{}track(ch.kind);window.open(ch.url,'_blank','noopener,noreferrer')}
  async function addReplyLink(){setPending(true);try{const d=await call('merchant-requests',{session_id:sid,offer_id:c.offer.offer_id,hold_until:null});setMsg(m=>m+'\n\nبرای پاسخ دقیق می‌توانید این فرم را پر کنید: '+d.url);setNote('لینک فرم پاسخ فروشنده به پیام اضافه شد.')}catch(e){setNote(e.message)}finally{setPending(false)}}
+ async function addShopLink(){setPending(true);try{const d=await call('freshness/ask',{session_id:sid,shop_id:c.shop_id});setMsg(m=>m+'\n\nتأیید یا اصلاح قیمت با یک لمس (بدون ثبت‌نام): '+d.url);setNote('لینک تازه‌سازی قیمت فروشگاه به پیام اضافه شد.')}catch(e){setNote(e.message)}finally{setPending(false)}}
  const enc=encodeURIComponent(msg);
  const share=[['whatsapp','واتس‌اپ','https://wa.me/?text='+enc],['telegram','تلگرام','https://t.me/share/url?url='+encodeURIComponent(location.origin+location.pathname)+'&text='+enc],['sms','پیامک','sms:?&body='+enc]];
  return <div className="followup">
@@ -24,7 +25,7 @@ export function FollowUpChannels({c,sid}){
   <section className="followup-group"><h4>ارسال با پیام‌رسان خودتان</h4><div className="followup-actions">{share.map(([k,l,u])=>{const I=ICON[k];return <a key={k} className="btn btn-ghost" href={u} target="_blank" rel="noopener noreferrer" onClick={()=>track(k)}><I size={16}/>{l}</a>})}
    {typeof navigator!=='undefined'&&navigator.share?<button className="btn btn-ghost" onClick={()=>navigator.share({text:msg}).then(()=>track('share')).catch(()=>{})}><Share2 size={16}/>بله، روبیکا و …</button>:null}
    <button className="btn btn-ghost" onClick={copy}><Copy size={16}/>کپی متن</button></div><small>گیرنده را خودتان انتخاب می‌کنید؛ بازارگرد هیچ پیامی ارسال نمی‌کند و شماره‌ای حدس نمی‌زند.</small></section>
-  {c.offer?.offer_id?<button className="text-btn" disabled={pending} onClick={addReplyLink}><Link2 size={15}/>افزودن لینک فرم پاسخ فروشنده به پیام</button>:null}
+  {c.shop_id?<button className="text-btn" disabled={pending} onClick={addShopLink}><Link2 size={15}/>افزودن لینک یک‌لمسی تازه‌سازی قیمت (همهٔ کالاهای این فروشگاه)</button>:null}{c.offer?.offer_id?<button className="text-btn" disabled={pending} onClick={addReplyLink}><Link2 size={15}/>افزودن لینک فرم پاسخ فروشنده به پیام</button>:null}
   {note?<p className="success-note" role="status">{note}</p>:null}
  </div>;
 }
@@ -32,7 +33,7 @@ export function FollowUpChannels({c,sid}){
 // Per-stop follow-up status on the plan page, maintained by the shopper, with a reminder before leaving.
 export function FollowUpTracker({sid,stops,items,departure,onContact}){
  const [state,setState]=useState({}),[note,setNote]=useState('');
- useEffect(()=>{let live=true;call('followups/'+encodeURIComponent(sid)).then(d=>{if(live)setState(d.followups)}).catch(()=>{});return()=>{live=false}},[sid,stops.length]);
+ useEffect(()=>{let live=true;call('followups/'+encodeURIComponent(sid)).then(d=>{if(live)setState(d.followups)}).catch(()=>{});return()=>{live=false}},[sid,stops.length,items.map(o=>o.price_confirmed_at||'').join()]);  // seller confirmations update the tracker
  async function update(shop,status){try{const product=items.find(o=>o.shop_id===shop)?.product_id;setState((await call('followups',{session_id:sid,shop_id:shop,product_id:product,status})).followups)}catch(e){setNote(e.message)}}
  if(!stops.length)return null;
  const pending=stops.filter(s=>state[s.shop_id]?.status!=='confirmed');
@@ -48,7 +49,7 @@ export function FollowUpTracker({sid,stops,items,departure,onContact}){
   {pending.length?<div className="reminder-banner"><BellRing size={16}/><span>{minutes!=null&&minutes>-30&&minutes<=180?'تا حرکت حدود '+num(Math.max(0,minutes))+' دقیقه مانده؛ ':''}{num(pending.length)} توقف هنوز تأیید قیمت و موجودی ندارد.</span></div>:<p className="ok-line">همه توقف‌ها تأیید شده‌اند.</p>}
   <ul className="followup-list">{stops.map((s,i)=>{const status=state[s.shop_id]?.status||'not_asked';const item=items.find(o=>o.shop_id===s.shop_id);return <li key={s.shop_id} className={'fu-'+status}>
    <span className="fu-num">{num(i+1)}</span>
-   <div className="fu-body"><b>{s.name}</b><select aria-label={'وضعیت پیگیری '+s.name} value={status} onChange={e=>update(s.shop_id,e.target.value)}>{Object.entries(LABEL).map(([k,l])=><option key={k} value={k}>{l}</option>)}</select>{state[s.shop_id]?.channel?<small>از طریق {({instagram:'اینستاگرام',website:'سایت',whatsapp:'واتس‌اپ',telegram:'تلگرام',sms:'پیامک',share:'اشتراک‌گذاری'})[state[s.shop_id].channel]||state[s.shop_id].channel}</small>:null}</div>
+   <div className="fu-body"><b>{s.name}</b><select aria-label={'وضعیت پیگیری '+s.name} value={status} onChange={e=>update(s.shop_id,e.target.value)}>{Object.entries(LABEL).map(([k,l])=><option key={k} value={k}>{l}</option>)}</select>{state[s.shop_id]?.channel?<small>از طریق {({instagram:'اینستاگرام',website:'سایت',whatsapp:'واتس‌اپ',telegram:'تلگرام',sms:'پیامک',share:'اشتراک‌گذاری',price_link:'لینک تازه‌سازی قیمت'})[state[s.shop_id].channel]||state[s.shop_id].channel}</small>:null}</div>
    {item?<button className="btn btn-ghost btn-sm" onClick={()=>onContact(item)}>پیام</button>:null}</li>})}</ul>
   <button className="btn btn-ghost btn-sm btn-block" onClick={remind}><BellRing size={15}/>یادآوری پیش از حرکت</button>
   {note?<small className="fu-note">{note}</small>:<small className="fu-note">وضعیت‌ها را خودتان به‌روز می‌کنید؛ تأیید مستقل فروشنده نیست.</small>}

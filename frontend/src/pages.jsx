@@ -120,6 +120,11 @@ export function PlanPage({sid,items,setItems,profile,route,setRoute,onShop,onCon
   const t=setTimeout(()=>call('route',{session_id:sid,shop_ids:shopIds.slice(0,4)},undefined,2).then(d=>{if(live)setRoute(d)}).catch(e=>{if(live)showError(e)}).finally(()=>{if(live)setLoading(false)}),350);
   return()=>{live=false;clearTimeout(t)};
  },[key,sid]);
+ // Seller updates (one-tap link, shop website, agreeing shoppers) flow back into the plan.
+ useEffect(()=>{if(!items.length)return;let live=true;const ids=items.map(o=>o.offer_id).slice(0,30);
+  const pull=()=>call('offers/refresh',{session_id:sid,offer_ids:ids}).then(d=>{if(!live)return;const by=Object.fromEntries(d.offers.map(o=>[o.offer_id,o]));
+   setItems(list=>list.map(o=>by[o.offer_id]?{...o,...Object.fromEntries(['effective_price_toman','price_basis','price_age_days','freshness_label','price_confirmed_today','price_confirmed_at','price_estimate','price_stale','availability'].map(k=>[k,by[o.offer_id][k]]))}:o))}).catch(()=>{});
+  pull();window.addEventListener('focus',pull);return()=>{live=false;window.removeEventListener('focus',pull)}},[sid,items.map(o=>o.offer_id).join(',')]);
  const stops=(route?.stops?.length?route.stops:shopIds.map(id=>{const o=items.find(x=>x.shop_id===id);return {shop_id:id,name:o.shop_name,address:o.address,opening:o.opening||{}}}));
  const ordered=[...stops,...shopIds.filter(id=>!stops.some(s=>s.shop_id===id)).map(id=>{const o=items.find(x=>x.shop_id===id);return {shop_id:id,name:o.shop_name,address:o.address,opening:o.opening||{}}})];
  const total=items.reduce((sum,o)=>sum+price(o)*(o.quantity||1),0);
@@ -142,7 +147,7 @@ export function PlanPage({sid,items,setItems,profile,route,setRoute,onShop,onCon
        <span className={'badge '+((s.opening_at_arrival||s.opening||{}).state==='open'?'badge-green':(s.opening_at_arrival||s.opening||{}).state==='closed'?'badge-red':'')}><Clock size={12}/>{(s.opening_at_arrival||s.opening||{}).label||'ساعت نامشخص'}</span></div>
       <p className="stop-address"><MapPin size={14}/>{s.address}</p>
       <div className="stop-meta">{s.arrival_at?<span>رسیدن حدود {new Date(s.arrival_at).toLocaleTimeString('fa-IR',{timeZone:'Asia/Tehran',hour:'2-digit',minute:'2-digit'})}</span>:null}{s.leg_straight_km!=null?<span>{money(s.leg_straight_km.toFixed(1))} کیلومتر از توقف قبل</span>:null}</div>
-      {stopItems.length?<ul className="stop-items">{stopItems.map(o=><li key={o.offer_id}><Thumb src={o.image_urls?.[0]} size={44}/><div className="stop-item-text"><b>{o.persian_title}</b><span>{money(price(o))} تومان</span></div>
+      {stopItems.length?<ul className="stop-items">{stopItems.map(o=><li key={o.offer_id}><Thumb src={o.image_urls?.[0]} size={44}/><div className="stop-item-text"><b>{o.persian_title}</b><span>{money(price(o))} تومان{o.price_confirmed_today?<em className="badge badge-fresh">قیمت تأییدشده امروز</em>:null}</span>{o.price_estimate&&!o.price_confirmed_today?<small className="offer-estimate">{o.price_estimate.text}</small>:null}</div>
        <div className="qty"><button aria-label="کم کردن" onClick={()=>setQty(o.offer_id,-1)}><Minus size={14}/></button><span>{num(o.quantity||1)}</span><button aria-label="زیاد کردن" onClick={()=>setQty(o.offer_id,1)}><Plus size={14}/></button></div>
        <button className="icon-btn" aria-label="حذف از برنامه" onClick={()=>remove(o.offer_id)}><Trash2 size={16}/></button></li>)}</ul>:<p className="muted">کالایی برای این توقف انتخاب نشده است.</p>}
       <div className="stop-foot"><span>جمع این توقف <b>{money(sub)} تومان</b></span><div className="row-gap">
