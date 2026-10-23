@@ -784,7 +784,7 @@ class SearchAllBody(BaseModel):
     page:int=Field(default=1,ge=1,le=500)
     page_size:int=Field(default=24,ge=6,le=60)
 SEARCH_ALL_CACHE={}
-CARD_FIELDS=('offer_id','product_id','shop_id','persian_title','category_name','image_urls','effective_price_toman','price_toman','price_basis','price_band','price_age_days','last_price_changed_at','reported_price_toman','shop_name','address','location_label','lat','lon','distance_km','opening','in_person_credit','availability','seller_report','seller_report_expired','why','warranty','inspection','image_match','identity_status')
+CARD_FIELDS=('offer_id','product_id','shop_id','persian_title','category_name','image_urls','effective_price_toman','price_toman','price_basis','price_band','price_age_days','last_price_changed_at','reported_price_toman','shop_name','address','location_label','lat','lon','distance_km','opening','in_person_credit','availability','seller_report','seller_report_expired','why','warranty','inspection','image_match','identity_status','price_estimate','price_stale','freshness_label','price_confirmed_today','price_confirmed_at')
 def card_offers(offers):
     """Only what offer cards render; keeps list payloads small."""
     out=[{k:o.get(k) for k in CARD_FIELDS} for o in offers]
