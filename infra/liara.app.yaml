@@ -1,0 +1,48 @@
+# Bazargard app manifest (deploy + IaC). Team-wide stack: negahban infra/liara.yaml
+# Desired state of Liara resources. Plan: python3 infra/liara_apply.py plan -f infra/liara.app.yaml
+# Values of env vars never live here - only their names. See docs/DEPLOYMENT.md "Infrastructure as code".
+apiVersion: meowmeow.platform/v1
+kind: LiaraStack
+team:
+  network: meow-net               # private network required by g2 plans
+apps:
+  - name: bazargard-ai
+    description: Bazargard (Torob challenge) - FastAPI + React shopping assistant
+    url: https://bazargard-ai.liara.run
+    platform: docker
+    port: 8080
+    plan: standard-base-g2          # 2 GB RAM / 1 CPU: the 430 MB SQLite catalogue is memory-mapped
+    bundle: basic
+    zeroDowntime: false             # basic bundle has no zero-downtime (standard+ only)
+    readOnlyRootFilesystem: false
+    running: true
+    build: {location: germany, dockerfile: ./Dockerfile, cache: true}   # npm/pip need unrestricted egress
+    disks:
+      - name: data
+        sizeGB: 3
+        mountTo: /data
+        backup:
+          native: false             # not available on basic
+          offsite: {keep: 7, exclude: [catalog.db]}   # catalogue is reproducible (seed + CATALOG_SHA256)
+    envs:
+      # LLM_PROVIDER=anthropic (default) uses RELAY_URL + RELAY_TOKEN (LLM gate); BoxAPI is the automatic fallback
+      required: [PUBLIC_BASE_URL, DATA_DIR, CATALOG_URL, CATALOG_TOKEN, CATALOG_SHA256, RELAY_URL, RELAY_TOKEN, BOXAPI_BASE_URL, BOXAPI_KEYS]
+      optional: [LLM_PROVIDER, LLM_FALLBACK_PROVIDER, ANTHROPIC_MODEL, ANTHROPIC_LIGHT_MODEL, LLM_MODEL, LLM_LIGHT_MODEL, LLM_FALLBACK_MODELS,
+                 LLM_REASONING_EFFORT, LLM_SEARCH_CONCURRENCY, LLM_TOOL_RESULT_CHARS, LLM_PROMPT_CACHE, SPEC_MODEL, SPEC_MODEL_SEARCH, ADMIN_TOKEN,
+                 LOG_LEVEL, LOG_FORMAT, APP_ENV, OBS_ENV, PORT, FORWARDED_ALLOW_IPS, OSRM_URL, OVERPASS_URL, HTTP_USER_AGENT,
+                 WEB_GATEWAY_URL, WEB_GATEWAY_TOKEN, LIARA_API_TOKEN, LIARA_ALLOW_MUTATIONS, DEV_CONSOLE, DEV_TRACE_HOURS, DEV_PRICES]
+    healthCheck:                    # SECONDS (Liara API validation: interval >= 30, startPeriod <= 3000); gates the cutover
+      # liveness only (/api/health); readiness (/api/ready, catalogue loaded) is gated by the smoke tests
+      command: ["CMD", "python", "-c", "import urllib.request as u; u.urlopen('http://127.0.0.1:8080/api/health', timeout=5)"]
+      interval: 30
+      timeout: 10
+      retries: 3
+      startPeriod: 60            # first boot may verify or seed the 430 MB catalogue
+    smoke:
+      attempts: 6
+      checks:
+        - {path: /api/health, expectStatus: 200, expectJson: {status: ok, catalog_ready: true}}
+        - {path: /api/ready, expectStatus: 200, expectJson: {ready: true}}       # catalogue loaded, provider configured
+        - {path: /, expectStatus: 200, contains: "بازارگرد", maxLatencyMs: 3000}
+    slo: {availability: 99.5, p95LatencyMs: 1500, probePath: /api/health}
+    scaling: {mode: vertical, min: standard-base-g2, max: standard-plus-g2, scaleUpWhen: "memory > 85% or cpu > 80% for 15 min", scaleDownWhen: "memory < 40% and cpu < 20% for 24 h"}

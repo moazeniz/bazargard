@@ -1,0 +1,19 @@
+# Stand-alone site for a dedicated host (alternative to the sub-path snippet).
+# Copy to /etc/nginx/sites-available/bazargard, replace <SERVER_NAME>, enable, `nginx -t`, reload.
+# For HTTPS run `certbot --nginx -d <SERVER_NAME>` afterwards (browser geolocation needs HTTPS).
+server {
+    listen 80;
+    server_name <SERVER_NAME>;
+
+    location / {
+        proxy_pass http://127.0.0.1:8506/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_buffering off;
+        proxy_read_timeout 600s;
+        client_max_body_size 4m;
+    }
+}

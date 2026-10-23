@@ -1,0 +1,1085 @@
+{
+ "built": "2026-10-23T06:53:35.745468",
+ "catalog": "catalog.db",
+ "queries": [
+  {
+   "id": "b1",
+   "kind": "budget",
+   "request": "یه هدفون بی‌سیم تا ۳ میلیون می‌خوام",
+   "search": "هدفون بی سیم",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "budget": 3000000,
+   "truth": {
+    "products": 540,
+    "offers": 833,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b2",
+   "kind": "budget",
+   "request": "گوشی سامسونگ زیر ۲۰ میلیون",
+   "search": "گوشی سامسونگ",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "budget": 20000000,
+   "title_any": [
+    "سامسونگ",
+    "samsung"
+   ],
+   "truth": {
+    "products": 18,
+    "offers": 33,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b3",
+   "kind": "budget",
+   "request": "لپ تاپ تا ۳۰ میلیون برای دانشگاه",
+   "search": "لپ تاپ",
+   "categories": [
+    "لپ تاپ و نوت بوک"
+   ],
+   "budget": 30000000,
+   "truth": {
+    "products": 5,
+    "offers": 5,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b4",
+   "kind": "budget",
+   "request": "تلویزیون حداکثر ۴۰ میلیون تومان",
+   "search": "تلویزیون",
+   "categories": [
+    "تلویزیون"
+   ],
+   "budget": 40000000,
+   "truth": {
+    "products": 8,
+    "offers": 18,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b5",
+   "kind": "budget",
+   "request": "یه پاوربانک ارزون زیر یک و نیم میلیون",
+   "search": "پاوربانک",
+   "categories": [
+    "پاوربانک و شارژر همراه"
+   ],
+   "budget": 1500000,
+   "truth": {
+    "products": 8,
+    "offers": 9,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b6",
+   "kind": "budget",
+   "request": "ساعت هوشمند تا ۵ میلیون",
+   "search": "ساعت هوشمند",
+   "categories": [
+    "ساعت و مچ بند هوشمند"
+   ],
+   "budget": 5000000,
+   "truth": {
+    "products": 131,
+    "offers": 163,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b7",
+   "kind": "budget",
+   "request": "اسپیکر بلوتوثی زیر ۲ میلیون",
+   "search": "اسپیکر بلوتوث",
+   "categories": [
+    "اسپیکر و سیستم صوتی"
+   ],
+   "budget": 2000000,
+   "truth": {
+    "products": 93,
+    "offers": 114,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "b8",
+   "kind": "budget",
+   "request": "ماشین اصلاح تا یک میلیون",
+   "search": "ماشین اصلاح",
+   "categories": [
+    "ماشین اصلاح و ریش‌ تراش"
+   ],
+   "budget": 1000000,
+   "truth": {
+    "products": 6,
+    "offers": 6,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "r1",
+   "kind": "brand",
+   "request": "هدفون انکر می‌خوام",
+   "search": "هدفون انکر",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "title_any": [
+    "انکر",
+    "anker"
+   ],
+   "truth": {
+    "products": 131,
+    "offers": 447,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "r2",
+   "kind": "brand",
+   "request": "لپ تاپ لنوو",
+   "search": "لپ تاپ لنوو",
+   "categories": [
+    "لپ تاپ و نوت بوک"
+   ],
+   "title_any": [
+    "لنوو",
+    "lenovo"
+   ],
+   "truth": {
+    "products": 134,
+    "offers": 212,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "r3",
+   "kind": "brand",
+   "request": "گوشی شیائومی",
+   "search": "گوشی شیائومی",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "title_any": [
+    "شیائومی",
+    "xiaomi",
+    "ردمی",
+    "redmi",
+    "poco",
+    "پوکو"
+   ],
+   "truth": {
+    "products": 118,
+    "offers": 376,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "r4",
+   "kind": "brand",
+   "request": "تلویزیون ال جی",
+   "search": "تلویزیون ال جی",
+   "categories": [
+    "تلویزیون"
+   ],
+   "title_any": [
+    "ال جی",
+    "lg"
+   ],
+   "truth": {
+    "products": 66,
+    "offers": 87,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "r5",
+   "kind": "brand",
+   "request": "ساعت کاسیو",
+   "search": "ساعت کاسیو",
+   "categories": [
+    "ساعت مچی عقربه‌ ای و دیجیتالی"
+   ],
+   "title_any": [
+    "کاسیو",
+    "casio"
+   ],
+   "truth": {
+    "products": 389,
+    "offers": 538,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "r6",
+   "kind": "brand",
+   "request": "دریل بوش",
+   "search": "دریل بوش",
+   "categories": [
+    "دریل و پیچ گوشتی برقی و شارژی"
+   ],
+   "title_any": [
+    "بوش",
+    "bosch"
+   ],
+   "truth": {
+    "products": 14,
+    "offers": 15,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "a1",
+   "kind": "area",
+   "request": "هدفون از مغازه‌های شیخ هادی",
+   "search": "هدفون",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "area": "شیخ هادی",
+   "truth": {
+    "products": 908,
+    "offers": 1494,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "a2",
+   "kind": "area",
+   "request": "گوشی موبایل حوالی فردوسی",
+   "search": "گوشی موبایل",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "area": "فردوسی",
+   "truth": {
+    "products": 236,
+    "offers": 419,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "a3",
+   "kind": "area",
+   "request": "دوربین مدار بسته در سنائی",
+   "search": "دوربین مدار بسته",
+   "categories": [
+    "دوربین مدار بسته"
+   ],
+   "area": "سنائی",
+   "truth": {
+    "products": 74,
+    "offers": 90,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "a4",
+   "kind": "area",
+   "request": "لپ تاپ نزدیک ایرانشهر",
+   "search": "لپ تاپ",
+   "categories": [
+    "لپ تاپ و نوت بوک"
+   ],
+   "area": "ایرانشهر",
+   "truth": {
+    "products": 217,
+    "offers": 391,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "a5",
+   "kind": "area",
+   "request": "ساعت مچی در ایرانشهر",
+   "search": "ساعت مچی",
+   "categories": [
+    "ساعت مچی عقربه‌ ای و دیجیتالی"
+   ],
+   "area": "ایرانشهر",
+   "truth": {
+    "products": 20,
+    "offers": 20,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "a6",
+   "kind": "area",
+   "request": "کابل شبکه در سنائی",
+   "search": "کابل شبکه",
+   "categories": [
+    "کابل شبکه"
+   ],
+   "area": "سنائی",
+   "truth": {
+    "products": 156,
+    "offers": 189,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "o1",
+   "kind": "open",
+   "request": "همین الان شارژر گوشی می‌خوام از مغازه‌ای که بازه",
+   "search": "شارژر گوشی",
+   "categories": [
+    "شارژر گوشی"
+   ],
+   "open_at": "2026-10-24T11:00",
+   "truth": {
+    "products": 715,
+    "offers": 1507,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "o2",
+   "kind": "open",
+   "request": "هدفون از جایی که الان بازه",
+   "search": "هدفون",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "open_at": "2026-10-24T11:00",
+   "truth": {
+    "products": 1323,
+    "offers": 2533,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "o3",
+   "kind": "open",
+   "request": "لامپ ال ای دی، مغازه باز",
+   "search": "لامپ LED",
+   "categories": [
+    "لامپ LED و کم مصرف"
+   ],
+   "open_at": "2026-10-24T11:00",
+   "truth": {
+    "products": 891,
+    "offers": 1225,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "o4",
+   "kind": "open",
+   "request": "پاوربانک تا ۳ میلیون که الان باز باشه",
+   "search": "پاوربانک",
+   "categories": [
+    "پاوربانک و شارژر همراه"
+   ],
+   "open_at": "2026-10-24T11:00",
+   "budget": 3000000,
+   "truth": {
+    "products": 106,
+    "offers": 139,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "o5",
+   "kind": "open",
+   "request": "جمعه ساعت ۸ شب گوشی موبایل می‌خوام بخرم",
+   "search": "گوشی موبایل",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "open_at": "2026-10-23T20:00",
+   "truth": {
+    "products": 806,
+    "offers": 2087,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "c1",
+   "kind": "credit",
+   "request": "دوربین مدار بسته قسطی حضوری",
+   "search": "دوربین مدار بسته",
+   "categories": [
+    "دوربین مدار بسته"
+   ],
+   "credit": true,
+   "truth": {
+    "products": 146,
+    "offers": 194,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "c2",
+   "kind": "credit",
+   "request": "هدفون با خرید اقساطی در مغازه",
+   "search": "هدفون",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "credit": true,
+   "truth": {
+    "products": 86,
+    "offers": 88,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "c3",
+   "kind": "credit",
+   "request": "اسپیکر قسطی",
+   "search": "اسپیکر",
+   "categories": [
+    "اسپیکر و سیستم صوتی"
+   ],
+   "credit": true,
+   "truth": {
+    "products": 103,
+    "offers": 119,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "c4",
+   "kind": "credit",
+   "request": "کوله پشتی با اقساط حضوری",
+   "search": "کوله",
+   "categories": [
+    "کیف و کوله",
+    "کیف و کوله ورزشی",
+    "کیف و کوله کوهنوردی"
+   ],
+   "credit": true,
+   "truth": {
+    "products": 135,
+    "offers": 135,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "c5",
+   "kind": "credit",
+   "request": "هارد اینترنال اقساطی",
+   "search": "هارد",
+   "categories": [
+    "هارد دیسک اینترنال"
+   ],
+   "credit": true,
+   "truth": {
+    "products": 60,
+    "offers": 68,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m1",
+   "kind": "model",
+   "request": "گوشی سامسونگ A55",
+   "search": "گوشی a55",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "title_all": [
+    "a55"
+   ],
+   "truth": {
+    "products": 3,
+    "offers": 7,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m2",
+   "kind": "model",
+   "request": "هدفون کیو سی وای T13",
+   "search": "هدفون t13",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "title_all": [
+    "t13"
+   ],
+   "truth": {
+    "products": 30,
+    "offers": 133,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m3",
+   "kind": "model",
+   "request": "ردمی نوت ۱۳",
+   "search": "گوشی redmi note 13",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "title_all": [
+    "note",
+    "13"
+   ],
+   "truth": {
+    "products": 4,
+    "offers": 6,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m4",
+   "kind": "model",
+   "request": "آیفون ۱۳",
+   "search": "گوشی آیفون 13",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "title_all": [
+    "13"
+   ],
+   "title_any": [
+    "آیفون",
+    "iphone",
+    "ایفون"
+   ],
+   "truth": {
+    "products": 22,
+    "offers": 31,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m5",
+   "kind": "model",
+   "request": "هدفون P47",
+   "search": "هدفون p47",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "title_all": [
+    "p47"
+   ],
+   "truth": {
+    "products": 2,
+    "offers": 4,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m6",
+   "kind": "model",
+   "request": "گلکسی S24",
+   "search": "گوشی s24",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "title_all": [
+    "s24"
+   ],
+   "truth": {
+    "products": 7,
+    "offers": 15,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "m7",
+   "kind": "model",
+   "request": "کنسول PS5",
+   "search": "کنسول ps5",
+   "categories": [
+    "کنسول بازی  PS5"
+   ],
+   "title_any": [
+    "ps5",
+    "پلی استیشن"
+   ],
+   "truth": {
+    "products": 35,
+    "offers": 127,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "s1",
+   "kind": "spelling",
+   "request": "هدفن بلوتوث",
+   "search": "هدفن بلوتوث",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "truth": {
+    "products": 1323,
+    "offers": 2533,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "s2",
+   "kind": "spelling",
+   "request": "لبتاپ ایسوس",
+   "search": "لبتاپ ایسوس",
+   "categories": [
+    "لپ تاپ و نوت بوک"
+   ],
+   "title_any": [
+    "ایسوس",
+    "asus"
+   ],
+   "truth": {
+    "products": 135,
+    "offers": 229,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "s3",
+   "kind": "spelling",
+   "request": "مایکروفر",
+   "search": "مایکروفر",
+   "categories": [
+    "مایکروویو"
+   ],
+   "truth": {
+    "products": 33,
+    "offers": 43,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "s4",
+   "kind": "spelling",
+   "request": "headphone bluetooth",
+   "search": "headphone bluetooth",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "truth": {
+    "products": 1323,
+    "offers": 2533,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "s5",
+   "kind": "spelling",
+   "request": "goshi samsung",
+   "search": "goshi samsung",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "truth": {
+    "products": 806,
+    "offers": 2087,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "s6",
+   "kind": "spelling",
+   "request": "مچ بند شیائومی mi band",
+   "search": "mi band",
+   "categories": [
+    "ساعت و مچ بند هوشمند"
+   ],
+   "truth": {
+    "products": 457,
+    "offers": 916,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n1",
+   "kind": "not_found",
+   "request": "تلویزیون ۵۵ اینچ لایکا",
+   "search": "تلویزیون لایکا",
+   "categories": [
+    "تلویزیون"
+   ],
+   "title_all": [
+    "لایکا"
+   ],
+   "not_found": true,
+   "missing": "لایکا",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n2",
+   "kind": "not_found",
+   "request": "کتابخوان کیندل",
+   "search": "کیندل",
+   "categories": [
+    "کتاب‌خوان و کاغذ دیجیتال"
+   ],
+   "title_all": [
+    "کیندل"
+   ],
+   "not_found": true,
+   "missing": "کیندل",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n3",
+   "kind": "not_found",
+   "request": "کنسول پلی استیشن ۶",
+   "search": "کنسول پلی استیشن 6",
+   "categories": [
+    "کنسول بازی  PS5",
+    "سایر کنسول بازی"
+   ],
+   "title_any": [
+    "ps6",
+    "پلی استیشن 6 ",
+    "playstation 6"
+   ],
+   "not_found": true,
+   "missing": "6",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n4",
+   "kind": "not_found",
+   "request": "ماشین ظرفشویی بوش",
+   "search": "ماشین ظرفشویی بوش",
+   "categories": [
+    "ماشین ظرفشویی"
+   ],
+   "title_any": [
+    "بوش",
+    "bosch"
+   ],
+   "not_found": true,
+   "missing": "بوش",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n5",
+   "kind": "not_found",
+   "request": "دوچرخه برقی",
+   "search": "دوچرخه برقی",
+   "categories": [
+    "دوچرخه"
+   ],
+   "title_all": [
+    "برقی"
+   ],
+   "not_found": true,
+   "missing": "برقی",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n6",
+   "kind": "not_found",
+   "request": "پهپاد DJI Mini 5",
+   "search": "پهپاد dji mini 5",
+   "categories": [],
+   "title_all": [
+    "dji"
+   ],
+   "not_found": true,
+   "missing": "پهپاد",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": false,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "n7",
+   "kind": "not_found",
+   "request": "یک مایکروویو خوب زیر ۸ میلیون",
+   "search": "مایکروویو",
+   "categories": [
+    "مایکروویو"
+   ],
+   "budget": 8000000,
+   "not_found": true,
+   "missing": "budget",
+   "truth": {
+    "products": 0,
+    "offers": 0,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "t1",
+   "kind": "trap",
+   "request": "گوشی آیفون",
+   "search": "گوشی آیفون",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "trap": true,
+   "truth": {
+    "products": 806,
+    "offers": 2087,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "t2",
+   "kind": "trap",
+   "request": "جارو برقی",
+   "search": "جارو برقی",
+   "categories": [
+    "جارو برقی",
+    "جارو برقی صنعتی",
+    "جارو شارژی",
+    "جارو رباتیک"
+   ],
+   "trap": true,
+   "truth": {
+    "products": 528,
+    "offers": 1010,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "t3",
+   "kind": "trap",
+   "request": "پرینتر",
+   "search": "پرینتر",
+   "categories": [
+    "پرینتر لیزری و چند کاره",
+    "جت پرینتر",
+    "پرینتر جوهر افشان",
+    "پرینتر حرارتی و لیبل زن",
+    "پرینتر سوزنی",
+    "پرینتر چاپ عکس",
+    "پرینتر، اسکنر، فکس و چند کاره"
+   ],
+   "trap": true,
+   "truth": {
+    "products": 406,
+    "offers": 684,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "t4",
+   "kind": "trap",
+   "request": "تبلت",
+   "search": "تبلت",
+   "categories": [
+    "تبلت"
+   ],
+   "trap": true,
+   "truth": {
+    "products": 160,
+    "offers": 294,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "t5",
+   "kind": "trap",
+   "request": "ساعت هوشمند",
+   "search": "ساعت هوشمند",
+   "categories": [
+    "ساعت و مچ بند هوشمند"
+   ],
+   "trap": true,
+   "truth": {
+    "products": 457,
+    "offers": 916,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "t6",
+   "kind": "trap",
+   "request": "دوربین عکاسی",
+   "search": "دوربین عکاسی",
+   "categories": [
+    "دوربین عکاسی و فیلمبرداری"
+   ],
+   "trap": true,
+   "truth": {
+    "products": 535,
+    "offers": 1020,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "x1",
+   "kind": "multi",
+   "request": "هدفون بی‌سیم زیر ۲ میلیون در شیخ هادی که الان باز باشه",
+   "search": "هدفون بی سیم",
+   "categories": [
+    "هدفون، هدست و هندزفری"
+   ],
+   "budget": 2000000,
+   "area": "شیخ هادی",
+   "open_at": "2026-10-24T11:00",
+   "truth": {
+    "products": 237,
+    "offers": 291,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "x2",
+   "kind": "multi",
+   "request": "دوربین مدار بسته قسطی زیر ۵ میلیون",
+   "search": "دوربین مدار بسته",
+   "categories": [
+    "دوربین مدار بسته"
+   ],
+   "budget": 5000000,
+   "credit": true,
+   "truth": {
+    "products": 57,
+    "offers": 69,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "x3",
+   "kind": "multi",
+   "request": "گوشی شیائومی زیر ۱۵ میلیون در فردوسی",
+   "search": "گوشی شیائومی",
+   "categories": [
+    "گوشی موبایل"
+   ],
+   "budget": 15000000,
+   "area": "فردوسی",
+   "title_any": [
+    "شیائومی",
+    "xiaomi",
+    "ردمی",
+    "redmi",
+    "poco",
+    "پوکو"
+   ],
+   "truth": {
+    "products": 1,
+    "offers": 1,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  },
+  {
+   "id": "x4",
+   "kind": "multi",
+   "request": "لپ تاپ لنوو تا ۴۰ میلیون از جایی که الان بازه",
+   "search": "لپ تاپ لنوو",
+   "categories": [
+    "لپ تاپ و نوت بوک"
+   ],
+   "budget": 40000000,
+   "open_at": "2026-10-24T11:00",
+   "title_any": [
+    "لنوو",
+    "lenovo"
+   ],
+   "truth": {
+    "products": 1,
+    "offers": 1,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": true
+   }
+  },
+  {
+   "id": "x5",
+   "kind": "multi",
+   "request": "اسپیکر بلوتوث قسطی تا ۳ میلیون",
+   "search": "اسپیکر بلوتوث",
+   "categories": [
+    "اسپیکر و سیستم صوتی"
+   ],
+   "budget": 3000000,
+   "credit": true,
+   "truth": {
+    "products": 6,
+    "offers": 6,
+    "categories_valid": true,
+    "open_filter_checked_at_runtime": false
+   }
+  }
+ ]
+}

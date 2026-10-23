@@ -1,0 +1,38 @@
+{
+  "surface book 1": [
+    "https://support.microsoft.com/en-us/surface/models/surface-book-1st-gen-specs-and-features"
+  ],
+  "elitebook 850 g7": [
+    "https://jp.ext.hp.com/content/dam/jp-ext-hp-com/jp/ja/ec/lib/products/portables/specs/elitebook_850_g7.pdf",
+    "https://jp.ext.hp.com/content/dam/jp-ext-hp-com/jp/ja/ec/lib/products/portables/specs/elitebook_850_g7_bto.pdf"
+  ],
+  "hp 470 g7": [
+    "https://jp.ext.hp.com/notebooks/business/hp_470_g7/",
+    "https://cdn.cnetcontent.com/f1/04/f1043b18-5103-4e13-bb37-1b0cd1b9e9c6.pdf"
+  ],
+  "a55": [
+    "https://www.samsung.com/uk/smartphones/galaxy-a/galaxy-a55-5g-awesome-iceblue-128gb-sm-a556blbaeub/",
+    "https://www.gsmarena.com/samsung_galaxy_a55-12824.php"
+  ],
+  "wh 1000xm4": [
+    "https://www.sony.co.uk/electronics/support/wireless-headphones-bluetooth-headphones/wh-1000xm4/specifications",
+    "https://www.soundguys.com/sony-wh-1000xm4-review-38011/"
+  ],
+  "ec685": [
+    "https://www.delonghi.com/en-ie/p/dedica-manual-espresso-makers-dedica-style-manual-coffee-maker-ec685.bk/EC685.BK.html?pid=0132106140",
+    "https://delonghi.ph/products/delonghi-dedica-manual-pump-espresso-maker-ec685"
+  ],
+  "iphone 13 pro max": [
+    "https://support.apple.com/en-us/111870",
+    "https://www.gsmarena.com/apple_iphone_13_pro_max-11089.php"
+  ],
+  "iphone air": [
+    "https://www.apple.com/iphone-air/specs/"
+  ],
+  "cyborg 15 a13uc": [
+    "https://storage-asset.msi.com/specSheet/au/nb/Cyborg%2015%20A13UC-1286NZ.pdf"
+  ],
+  "victus 15 fa2013dx": [
+    "https://files.bbystatic.com/p96hXAK%2FIw5pG6EQAN%2FtGA%3D%3D/87e46658-f1ba-41d0-8596-a896abd35b29.pdf"
+  ]
+}

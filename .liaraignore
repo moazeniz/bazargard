@@ -1,0 +1,20 @@
+# Files excluded from the Liara source upload (keep in sync with .dockerignore).
+.git
+.github
+.venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/*.db*
+**/*.gz
+.env*
+**/.env*
+data
+backups
+dist
+frontend/dist
+tests
+docs
+*.zip
+*.log

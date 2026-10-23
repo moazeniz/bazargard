@@ -1,0 +1,1877 @@
+{
+ "run_at": "2026-10-23T06:59:04.262478",
+ "base": "http://127.0.0.1:8611/",
+ "notices": [
+  "نام اغلب فروشگاه‌ها و همه شماره‌ها در دیتاست ساختگی است.",
+  "قیمت‌ها ثبت‌شده‌اند؛ موجودی زنده تأیید نشده است.",
+  "پوشش محدود: حدود ۱۰٪ فروشگاه‌های تهران و حداکثر ۳۰۰ محصول از هر فروشگاه."
+ ],
+ "rows": [
+  {
+   "id": "b1",
+   "kind": "budget",
+   "request": "یه هدفون بی‌سیم تا ۳ میلیون می‌خوام",
+   "seconds": 12.1,
+   "first_tool_seconds": 4.3,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "هندزفری بی سیم باوفنگ مدل BF-888S",
+     "price": 200000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم اپل مدل ایرپاد پرو 2 تایپ سی نویز کنسلینگ فعال",
+     "price": 1570000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "هندزفری بلوتوثی بی سیم للیسو مدل LS99 با قابلیت نویز کنسلینگ",
+     "price": 1600000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم شیائومی کیو سی وای مدل T13 Plus",
+     "price": 2400000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم انکر مدل R50i NC با قابلیت نویزکنسلینگ و مقاومت در برابر آب",
+     "price": 2500000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_80ac33946ebd5e68fe482287",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_39bae2f1f508c610d35010a6",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_59a553b454d6f0578c28bf61",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_8310da15bf8dd56a5e36c21d",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_cbbee0de1e3d11edbb0f42ad",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب چند مدل هدفون بی‌سیم زیر ۳ میلیون تومان پیدا شد. قیمت‌ها قیمت دیتاست‌اند، نه قیمت زنده، و موجودی هیچ‌کدام تأیید نشده.\n\n- **[4] شیائومی QCY T13 Plus، ۲٫۴ میلیون:** نویز کنسلینگ فعال، ۶ میکروفون و اتصال به چند دستگاه دارد.\n- **[5] انکر R50i NC، ۲٫۵ میلیون:** نویز کنسلینگ فعال و حالت صدای محیط دارد. باتری با محفظه ۴۵ ساعت است و در برابر پاشش آب مقاوم است.\n- **[2] ایرپاد پرو ۲ اپل، ۱٫۵۷ میلیون:** نویز کنسلینگ و بلوتوث ۵٫۳ دارد. این قیمت برای این مدل پایین است، پس پیش از خرید اصل‌بودن و گارانتی را بپرسید.\n- **[3] للیسو LS99، ۱٫۶ میلیون:** گردنی است و نویز کنسلینگ دارد. شارژدهی مکالمه‌اش ۲۰ ساعت اعلام شده.\n\nهر چهار مورد در پاساژ علاالدین (خیابان جمهوری، طبقه زیر همکف، پلاک ۴۴) هستند و طبق برنامه تا ۱۵:۰۰ باز هستند. کارت ۱ هندزفری سیمی است و جزو پیشنهادها نیست.\n\nبیشتر برای چه کاری می‌خواهید: مکالمه، ورزش یا موسیقی؟ بر همین اساس انتخاب را کوچک‌تر می‌کنم.",
+   "citations": [
+    4,
+    5,
+    2,
+    3
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    3000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "b3",
+   "kind": "budget",
+   "request": "لپ تاپ تا ۳۰ میلیون برای دانشگاه",
+   "seconds": 16.3,
+   "first_tool_seconds": 3.8,
+   "tools": [
+    "update_preferences",
+    "search_products",
+    "update_preferences"
+   ],
+   "error": null,
+   "rounds": 3,
+   "cards": [
+    {
+     "title": "لپ تاپ Sony مدل VPCSA استوک",
+     "price": 17000000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "لپ تاپ HP مدلEliteBook 840 G1(I5(4u)/8/500/INTEL)",
+     "price": 25500000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "لپ تاپ استوک اچ‌پی EliteBook 840 G1 پردازنده i5 حافظه ۸ گیگابایت هارد ۵۰۰ گیگابا",
+     "price": 25500000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "لپ تاپ مایکروسافت Surface Go ظرفیت ۶۴ گیگابایت با رم ۴ گیگابایت",
+     "price": 27000000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "نوت‌بوک اچ‌پی 440G2 پردازنده Core i5 رم ۸ گیگابایت سایز ۱۴ اینچ",
+     "price": 30000000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_f4c1d9a576706391130dadf9",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_4907b9f458e02bcccd3e14d9",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_1989f2e5d7fa96b272d4b775",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_626e7bef29af3e4c9b5d75ea",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_96094b0e2a227399ae3e544a",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب با سقف ۳۰ میلیون تومان، فقط ۵ لپ‌تاپ پیدا شد و همه‌شان استوک یا دست‌دوم‌اند. قیمت‌ها زنده نیستند و موجودی هیچ‌کدام تأیید نشده است.\n\n- **[3]** اچ‌پی EliteBook 840 G1 با Core i5، رم ۸ گیگ و صفحه ۱۴ اینچ، قیمت ۲۵٫۵ میلیون. برای کارهای دانشگاهی مثل متن و اینترنت مناسب‌تر به نظر می‌رسد. مشخصات حافظه‌اش در رکورد ناسازگار است: عنوان ۵۰۰ گیگ می‌گوید و جدول ۲۵۶ گیگ SSD. [2] همین مدل است و همان قیمت را دارد، با گرافیک مجزای ۱ گیگ و صفحه FHD.\n- **[5]** اچ‌پی 440 G2 با Core i5، رم ۸ گیگ و هارد ۵۰۰ گیگ، قیمت ۳۰ میلیون. وضعیتش «خیلی خوب» ثبت شده، اما برای قیمتش گران است.\n- **[4]** Surface Go با رم ۴ گیگ و حافظه ۶۴ گیگ، قیمت ۲۷ میلیون. صفحه‌اش ۱۰ اینچ است و برای کار روزمره دانشگاه ضعیف است.\n\nطبق برنامه دیتاست، هر سه فروشگاه امروز تعطیل‌اند. همچنین دیتاست فقط بخشی از بازار تهران را پوشش می‌دهد.\n\nلپ‌تاپ نو می‌خواهید یا استوک هم قبول است؟ اگر محله‌تان را بگویید، نزدیک‌ترین گزینه را هم پیدا می‌کنم.",
+   "citations": [
+    3,
+    2,
+    5,
+    4
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    30000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "r2",
+   "kind": "brand",
+   "request": "لپ تاپ لنوو",
+   "seconds": 10.0,
+   "first_tool_seconds": 3.2,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "لپ تاپ لنوو V15 | 16GB RAM | 1TB SSD | i5 13420H",
+     "price": 183378940.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ لنوو V15 | 16GB RAM | 2TB SSD | Ryzen 7 7730u",
+     "price": 208818940.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ لنوو LOQ | 16GB RAM | 512GB SSD | I5 13450HX | VGA RTX5050",
+     "price": 333368940.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ لنوو LOQ | 24GB RAM | 512GB SSD | Core i7 14700HX | VGA RTX5060",
+     "price": 422800000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ لنوو Legion 5 ظرفیت ۳۲ گیگابایت رم و ۵۱۲ گیگابایت SSD با گرافیک RTX 5060",
+     "price": 520000000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_60cc829a07e5012473957134",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_39e37cb71759167cb0cad0b0",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_19fcecd0215be990f03f6b1b",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_18a8a52d122821e79fc413cb",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_d28ae881dfbf9faf4172935d",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب ۱۳۵ مدل لپ‌تاپ لنوو پیدا شد. این پنج نمونه از بازه‌های قیمتی مختلف‌اند و قیمت بالاتر لزوماً کیفیت بیشتر نیست.\n\n- **اقتصادی:** [1] مدل V15 با i5 13420H، رم ۱۶ و SSD یک ترابایتی، حدود ۱۸۳ میلیون تومان. برای کار اداری و دانشجویی مناسب است. [2] مدل V15 با Ryzen 7، رم ۱۶ و SSD دو ترابایتی، حدود ۲۰۹ میلیون تومان.\n- **میانی تا بالا:** [3] مدل LOQ با RTX 5050، حدود ۳۳۳ میلیون تومان. [4] مدل LOQ با i7 14700HX و RTX 5060، حدود ۴۲۳ میلیون تومان. عنوان فروشنده و مشخصات آن در ظرفیت رم ناهماهنگ است. [5] مدل Legion 5 با رم ۳۲ و RTX 5060، حدود ۵۲۰ میلیون تومان.\n\nقیمت‌ها مربوط به دیتاست‌اند و حدود ۱۱ تا ۱۵ روز از آخرین تغییرشان گذشته است. موجودی و گارانتی هیچ‌کدام تأیید نشده است.\n\nبیشتر برای چه کاری و با چه سقف بودجه‌ای لپ‌تاپ می‌خواهید؟",
+   "citations": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    183000000.0,
+    209000000.0,
+    333000000.0,
+    423000000.0,
+    520000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "a1",
+   "kind": "area",
+   "request": "هدفون از مغازه‌های شیخ هادی",
+   "seconds": 11.1,
+   "first_tool_seconds": 3.7,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "هدفون گردنی سامسونگ مدل U Flex",
+     "price": 1320000.0,
+     "intent": true,
+     "constraints": {
+      "area": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم نیا مدل S3000",
+     "price": 2600000.0,
+     "intent": true,
+     "constraints": {
+      "area": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم مانستر مدل XKH01",
+     "price": 2750000.0,
+     "intent": true,
+     "constraints": {
+      "area": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم انکر مدل Soundcore P41i A3937",
+     "price": 7200000.0,
+     "intent": true,
+     "constraints": {
+      "area": true
+     }
+    },
+    {
+     "title": "هدفون بی‌ سیم پاورولوژی مدل PWLAU003",
+     "price": 8900000.0,
+     "intent": true,
+     "constraints": {
+      "area": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_a3cf80cecc92340e49f274aa",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_a6a54cfc31217175f1569fb5",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_cb12f7600f4a76da00de5815",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_6ab18d3dfc857c2dfabfc087",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_9ac372d359293e17099daf8d",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در محدوده‌ی شیخ هادی چند هدفون پیدا کردم. قیمت‌ها از دیتاست‌اند و زنده نیستند. موجودی و رنگ هیچ‌کدام تأیید نشده است، و ۴ از ۵ مورد قدیمی‌تر از یک ماه قیمت خورده‌اند.\n\n- **اقتصادی:** سامسونگ U Flex گردنی ۱٫۳۲ میلیون تومان [1]. گارانتی‌اش ثبت نشده و نویزکنسلینگ ندارد.\n- **میانی:** مانستر XKH01 رو‌گوشی، بلوتوث ۵٫۳، ۲٫۷۵ میلیون تومان [3]. باتری ۲۵ ساعته دارد و تست و تحویل در حضور مشتری است. نیا S3000 هم ۲٫۶ میلیون تومان است [2] ولی «بدون گارانتی» ثبت شده.\n- **بالاتر:** انکر P41i ایربادز با نویزکنسلینگ، ۷٫۲ میلیون تومان [4]. پاورولوجی PWLAU003 هم ۸٫۹ میلیون تومان است [5] و نویزکنسلینگ میکروفونی (ENC) دارد.\n\nبازه‌ی قیمت به معنی کیفیت نیست. فقط حدود ۱۰٪ مغازه‌های تهران در دیتاست هستند.\n\nبودجه‌ات حدوداً چقدر است و هدفون رو‌گوشی می‌خواهی یا توگوشی (ایربادز)؟",
+   "citations": [
+    1,
+    3,
+    2,
+    4,
+    5
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": false,
+   "price_mentions": [
+    1320000.0,
+    2750000.0,
+    2600000.0,
+    7200000.0,
+    8900000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "o4",
+   "kind": "open",
+   "request": "پاوربانک تا ۳ میلیون که الان باز باشه",
+   "seconds": 11.0,
+   "first_tool_seconds": 3.2,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "پاوربانک پرودو مدل PBFCH049 ظرفیت 5000 میلی آمپر ساعت",
+     "price": 1200000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "open": true
+     }
+    },
+    {
+     "title": "پاور بانک 22.5 وات پرووان مدل PPB5124 ظرفیت 10000 میلی آمپر ساعت",
+     "price": 2250000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "open": true
+     }
+    },
+    {
+     "title": "پاوربانک 5000 میلی‌آمپر 20 وات لانکس مدل LP25",
+     "price": 2250000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "open": true
+     }
+    },
+    {
+     "title": "پاوربانک گرین لاین مدل Transparent Pro ظرفیت 10000 میلی‌ آمپر ساعت",
+     "price": 2630000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "open": true
+     }
+    },
+    {
+     "title": "پاوربانک اکسیژن 10000 میلی آمپر مدل OX-170",
+     "price": 2680000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "open": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_3910b4d6682f1dcb66dddd58",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_8b970e93a30db8d99b70c006",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_efb4d2e14924a34e843376f1",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_9fe04934835b55220f768e14",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_5f4658c51931d53afa5cef47",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب ۵ پاوربانک زیر ۳ میلیون تومان پیدا کردم که طبق برنامه الان باز هستند. موجودی و قیمت زنده تأیید نشده است.\n\n- **ارزان‌تر:** [1] پرودو ۵۰۰۰ میلی‌آمپر با ۲٫۲ میلیون تومان... اشتباه نکنید، قیمتش ۱٫۲ میلیون است. فردوسی، تجارت جهانی، تا ۲۰:۰۰ باز است. قیمتش ۸۰ روز قبل ثبت شده و کانکتور لایتنینگ دارد.\n- **میانی، ۱۰۰۰۰ میلی‌آمپر:** [2] پرووان PPB5124 با ۲٫۲۵ میلیون تومان، کابل همراه دارد. شیخ هادی، پاساژ حافظ، همکف است و تا ۱۹:۰۰ باز است.\n- **بالاتر:** [4] گرین‌لاین Transparent Pro با ۲٫۶۳ میلیون تومان، ۱۰۰۰۰ میلی‌آمپر با نمایشگر LCD و شارژ سریع. فردوسی، پاساژ چهارسو، طبقه ۴ است. [5] اکسیژن OX-170 با ۲٫۶۸ میلیون تومان، ۱۰۰۰۰ میلی‌آمپر، همکف و تا ۲۱:۰۰ باز است. ۷ روز تضمین بازگشت دارد.\n\nقیمت و بازه‌ها فقط نشان‌دهنده سطح قیمت‌اند و کیفیت را ثابت نمی‌کنند. دیتاست فقط بخشی از مغازه‌های تهران را پوشش می‌دهد.\n\nبرای گوشی‌تان پاوربانک با کانکتور لایتنینگ (آیفون) می‌خواهید یا USB-C؟",
+   "citations": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    3000000.0,
+    2200000.0,
+    2250000.0,
+    2630000.0,
+    2680000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "c1",
+   "kind": "credit",
+   "request": "دوربین مدار بسته قسطی حضوری",
+   "seconds": 9.5,
+   "first_tool_seconds": 2.7,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "دوربین مداربسته مدل CA-1419 بولت 8 مگاپیکسل",
+     "price": 2500000.0,
+     "intent": true,
+     "constraints": {
+      "credit": true
+     }
+    },
+    {
+     "title": "دوربین مداربسته داهوا HDW1509TLQP-A-LED _ میکروفن داخلی",
+     "price": 4500000.0,
+     "intent": true,
+     "constraints": {
+      "credit": true
+     }
+    },
+    {
+     "title": "دوربین مکعبی سیمکارتی کوچک مدل UBOX",
+     "price": 4900000.0,
+     "intent": true,
+     "constraints": {
+      "credit": true
+     }
+    },
+    {
+     "title": "دوربین مدار بسته سیمکارتی ۱۲ مگاپیکسل مدل S388-V با سه لنز واقعی قابل تنظیم چرخش",
+     "price": 7300000.0,
+     "intent": true,
+     "constraints": {
+      "credit": true
+     }
+    },
+    {
+     "title": "دوربین مدار بسته مینی اسپید دام دو لنز ۱۰ مگاپیکسل",
+     "price": 7430080.0,
+     "intent": true,
+     "constraints": {
+      "credit": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_57f67371dc58bb35be1d7f38",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_72a004d803b80bc3e93103f6",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_c2b27e3c4e1da0296176c27e",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_82d5a3aa6cf70bf337bbb522",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_2f4052389bbd4240df5c4df8",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "پنج گزینه با اعتبار حضوری در دیتاست پیدا شد. قیمت‌ها زنده نیستند و موجودی هیچ‌کدام تأیید نشده است.\n\n- **اقتصادی:** [1] سونی بولت ۸ مگاپیکسل AHD، ۲٫۵ میلیون تومان، پاساژ علاءالدین ۲ (طبقه ۴، پلاک ۴۲۴)، اسنپ‌پی. طبق برنامه الان باز است.\n- **میانی:** [2] داهوا ۵ مگاپیکسل با میکروفن، ۴٫۵ میلیون تومان، ترب‌پی. پاساژ علاءالدین منوچهری، پلاک ۹۲۳. قیمتش ۱۶۰ روز پیش ثبت شده است.\n- **میانی:** [3] مکعبی سیمکارتی، ۴٫۹ میلیون تومان، اسنپ‌پی.\n- **بالاتر:** [4] و [5] سیمکارتی، حدود ۷٫۳ تا ۷٫۴ میلیون تومان. اعتبارشان با تارا، اسنپ‌پی، دیجی‌پی و ترب‌پی است، ولی طبق برنامه امروز تعطیل است.\n\n[1] و [2] کابلی‌اند و برای نصب ثابت مناسب‌ترند. [3] تا [5] سیمکارتی یا بی‌سیم‌اند. بازه‌های قیمت نشانه کیفیت نیستند.\n\nدوربین را برای داخل خانه می‌خواهید یا فضای باز، و بودجه‌تان تقریباً چقدر است؟",
+   "citations": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    1,
+    2,
+    3,
+    5
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    2500000.0,
+    4500000.0,
+    4900000.0,
+    7400000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "m1",
+   "kind": "model",
+   "request": "گوشی سامسونگ A55",
+   "seconds": 11.6,
+   "first_tool_seconds": 4.3,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "گوشی سامسونگ (استوک) A55 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 95000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (استوک) A55 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 85000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (ویتنام)  A55 5G | حافظه 128 رم 8 گیگابایت",
+     "price": 98000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (ویتنام) A55 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 108000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (ویتنام) A55 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 112000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (ویتنام) A55 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 109000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (ویتنام) A55 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 110000000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_78e97a00642f3c874a05d9fb",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_65b971d93d221620b40bbf27",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_ab9d4ceb8477ac1ac8764376",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_81116b69cd21638a0dd7a2c9",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_48ca39a15d74ce7b5507af32",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_49e13cd42dc4ab68414c24ea",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_2d1c98f49ed3a847d8d81a10",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "۷ پیشنهاد برای Galaxy A55 در دیتاست پیدا شد. قیمت‌ها قیمت دیتاست‌اند، زنده نیستند و موجودی تأیید نشده است.\n\n- **ارزان‌ترین:** [2] نسخه استوک ۲۵۶ گیگ با ۸۵ میلیون تومان. طبق برنامه الان بسته است. توضیحش «تمیز در حد نو» است و تست و تحویل در حضور مشتری دارد.\n- **استوک و باز:** [1] همان مدل ۲۵۶ گیگ با ۹۵ میلیون تومان، در پاساژ علاءالدین، همکف. طبق برنامه تا ۲۱:۰۰ باز است. گارانتی‌اش مشخص نیست.\n- **نو و گارانتی‌دار:** [5] نسخه ویتنام ۲۵۶ گیگ با ۱۱۲ میلیون تومان و گارانتی ۱۸ ماه شرکتی، در علاءالدین طبقه ۵. [6] با ۱۰۹ میلیون هم گارانتی ۱۸ ماهه دارد، ولی طبق برنامه بسته است.\n- [3] نسخه ۱۲۸ گیگ با ۹۸ میلیون تومان است. از [1] گران‌تر است و حافظه‌اش نصف.\n\nاستوک‌ها ارزان‌ترند، اما گارانتی و وضعیت دستگاه را باید حضوری یا تلفنی چک کنید.\n\nنو می‌خواهید یا استوک هم قبول است؟ بودجه و محله‌تان را هم بگویید تا بر اساس آن‌ها فیلتر کنم.",
+   "citations": [
+    2,
+    1,
+    5,
+    6,
+    3,
+    1
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    85000000.0,
+    95000000.0,
+    112000000.0,
+    98000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "m2",
+   "kind": "model",
+   "request": "هدفون کیو سی وای T13",
+   "seconds": 9.9,
+   "first_tool_seconds": 3.2,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "هدفون بلوتوثی شیائومی مدل QCY T13 با نویز کنسلینگ و مقاوم در برابر رطوبت",
+     "price": 2700000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "هندزفری ایرپاد بلوتوثی شیائومی کیو سی وای مدل QCY T13 x - رنگ: مشکی",
+     "price": 2700000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_e29a8aca75d5a8e411b1bd98",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_df5b30f813132414a9d79794",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب دو پیشنهاد برای QCY T13 پیدا شد. هر دو از یک فروشگاه‌اند و قیمتشان ۲٬۷۰۰٬۰۰۰ تومان است.\n\n- **[1]** هدفون بلوتوثی QCY T13 با نویزکنسلینگ، مشکی. مشخصات ثبت‌شده: بلوتوث ۵.۱، IPX5، درایور ۷.۲ میلی‌متر، حدود ۸ ساعت پخش موسیقی و تا ۲۵ ساعت با محفظه شارژ.\n- **[2]** مدل **QCY T13 x** مشکی. مشخصاتش در دیتاست ثبت نشده است. T13 x ممکن است نسخه‌ای متفاوت از T13 باشد، پس پیش از خرید از فروشنده بپرسید.\n\nهر دو در «نیکورا ویوان» هستند: خیابان جمهوری، پاساژ علاالدین، طبقه زیرهمکف، پلاک ۴۴. طبق برنامه تا ساعت ۱۵ باز است. قیمت‌ها ۱۶ تا ۲۱ روز پیش ثبت شده‌اند. موجودی و گارانتی مشخص نیست. برند هر دو در کاتالوگ «شیائومی» ثبت شده است.\n\nمی‌خواهید پیام استعلام موجودی، قیمت و گارانتی را برایتان آماده کنم؟",
+   "citations": [
+    1,
+    2
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": false,
+   "price_mentions": [
+    2700000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "s1",
+   "kind": "spelling",
+   "request": "هدفن بلوتوث",
+   "seconds": 11.0,
+   "first_tool_seconds": 3.8,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "هندزفری گردنی بلوتوثی برند VJP مدل B110",
+     "price": 1199000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "هندزفری بلوتوثی شیائومی هایلو مدل Mori Plus",
+     "price": 3335000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "هدفون بلوتوثی انکر Soundcore R50i مدل A3949",
+     "price": 3428900.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "هندزفری بلوتوثی ساندکور انکر مدل Liberty 4 NC",
+     "price": 10000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "هندزفری بلوتوثی انکر مدل Soundcore Liberty 4 NC A3947",
+     "price": 10135000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_adcbc7dedbf0f2b5b85fb245",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_f9958315cb48460c91875908",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_bf0f71e1385dc645eb8bbf94",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_c0c0cc7ce09d48702a68ef49",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_3e8283d01390299dd9f3def0",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب ۵ گزینه با بازه‌های قیمتی مختلف پیدا شد. بازه‌ها فقط پراکندگی قیمت را نشان می‌دهند و کیفیت را ثابت نمی‌کنند.\n\n- **اقتصادی:** [1] هندزفری گردنی VJP B110، حدود ۱٫۲ میلیون تومان. شارژ تایپ‌سی دارد و باتری‌اش ۳۰۰ میلی‌آمپر است.\n- **میانی:** [2] شیائومی Mori Plus، حدود ۳٫۳ میلیون تومان. ANC فعال و بلوتوث ۶ دارد. [3] انکر R50i، حدود ۳٫۴ میلیون تومان. ENC و بلوتوث ۵٫۳ دارد و تا ۱۰ ساعت پخش موسیقی می‌دهد.\n- **بالاتر:** [4] و [5] انکر Liberty 4 NC، حدود ۱۰ میلیون تومان. ANC دارد، شش میکروفون و بلوتوث ۵٫۳. در [5] عبارت «اصل» ثبت شده است.\n\nقیمت‌ها قیمت ثبت‌شده در دیتاست هستند و موجودی و گارانتی تأیید نشده. گارانتی [2] تا [5] ثبت نشده است.\n\nبودجه‌تان تقریباً چقدر است، و بیشتر برای ورزش می‌خواهید یا استفاده روزمره؟",
+   "citations": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    2,
+    5
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": false,
+   "price_mentions": [
+    1200000.0,
+    3300000.0,
+    3400000.0,
+    10000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "s2",
+   "kind": "spelling",
+   "request": "لبتاپ ایسوس",
+   "seconds": 11.1,
+   "first_tool_seconds": 3.2,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "لپ تاپ ایسوس X1404VA | 16GB RAM | 512GB SSD | Core 5 120U",
+     "price": 150000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ ایسوس P1503CVA | 16GB RAM | 512GB SSD | Core I7 13620H",
+     "price": 235700000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ ایسوس TP3407SA | 16GB RAM | 1TB SSD | Core Ultra 7 256V",
+     "price": 324700000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ گیمینگ ایسوس TUF FA608UH Ryzen 7 ظرفیت ۱۶ گیگابایت حافظه ۵۱۲ گیگابایت SSD",
+     "price": 379600000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "لپ تاپ ایسوس G615JMR | 16GB RAM | 1TB SSD | I7 14650HX | VGA RTX5060",
+     "price": 474700000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_8a70935c08f9658ced8363fe",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_a654956516f7e8d38dc6703c",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_7caa64234d05651313d47bdf",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_abe669a3400e2fc0db4913d4",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_b83afec706b1a6064acb2ddd",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب ۱۳۵ مدل لپ‌تاپ ایسوس هست. پنج نمونه از بازه‌های قیمتی مختلف را نشان دادم. بازه قیمت به‌تنهایی کیفیت را مشخص نمی‌کند.\n\n- **اقتصادی [1]:** Vivobook X1404VA با Core 5 و ۵۱۲ گیگ SSD، حدود ۱۵۰ میلیون تومان. مشخصات رسمی ۱۶ گیگ رم است، ولی عنوان فروشنده ۸ گیگ نوشته. قبل از خرید رم را بپرسید.\n- **میانی [2]:** P1503CVA با Core i7 13620H، ۱۶ گیگ رم و صفحه ۱۵.۶ اینچ، حدود ۲۳۵٫۷ میلیون. گارانتی‌اش ثبت نشده است.\n- **سبک و لمسی [3]:** VivoBook Flip 14 با Ultra 7 و OLED، حدود ۳۲۴٫۷ میلیون.\n- **گیمینگ [4] و [5]:** TUF با RTX 5050 حدود ۳۷۹٫۶ میلیون و ROG Strix با RTX 5060 حدود ۴۷۴٫۷ میلیون.\n\nقیمت‌ها از دیتاست‌اند و زنده نیستند. موجودی هیچ‌کدام تأیید نشده است.\n\nبودجه‌تان تقریباً چقدر است و بیشتر برای چه کاری می‌خواهید؟ مثلاً کار اداری، دانشجویی یا بازی.",
+   "citations": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": false,
+   "price_mentions": [
+    150000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "s5",
+   "kind": "spelling",
+   "request": "goshi samsung",
+   "seconds": 11.0,
+   "first_tool_seconds": 2.7,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "گوشی سامسونگ  E1272 | حافظه 32 مگابایت",
+     "price": 2800000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (استوک) A16 | حافظه 256 رم 8 گیگابایت",
+     "price": 71000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (استوک) S23 FE 5G | حافظه 256 رم 8 گیگابایت",
+     "price": 105000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (استوک) S22 Ultra 5G | حافظه 256 رم 12 گیگابایت",
+     "price": 155000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "گوشی سامسونگ (استوک) S23 Ultra 5G | حافظه 256 رم 12 گیگابایت",
+     "price": 169000000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_8a8a6f80f7cfb86b0c323bcd",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_01d8d1c501e1f58ef22abdd0",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_ef36fa3c39b1ad8d08876a02",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_420aeba049fffa09596bfd07",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_6fff1f7370c1c452c4b6de3e",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب ۵ گوشی سامسونگ در بازه‌های قیمتی مختلف پیدا کردم. این بازه‌ها فقط پخش قیمت را نشان می‌دهند و کیفیت را ثابت نمی‌کنند.\n\n- **ارزان‌ترین:** [1] یک گوشی دکمه‌ای E1272 با ۲٫۸ میلیون تومان است. اینترنت ندارد.\n- **میانی:** [2] مدل A16 استوک با ۲۵۶ گیگ حافظه و ۸ گیگ رم، ۷۱ میلیون تومان. [3] مدل S23 FE استوک با ۱۰۵ میلیون تومان.\n- **بالاتر:** [4] مدل S22 Ultra استوک با ۱۵۵ میلیون تومان. [5] مدل S23 Ultra استوک با ۱۶۹ میلیون تومان و تراشه Snapdragon 8 Gen 2.\n\nچهار مورد آخر استوک هستند. در [2]، [3] و [5] ارائه‌دهنده گارانتی «تست و تحویل در حضور مشتری» ثبت شده و گارانتی زمان‌دار ندارند. در [4] نوشته شده «کالا دست دوم است». موجودی هیچ‌کدام تأیید نشده و قیمت‌ها زنده نیستند.\n\nبودجه‌ات تقریباً چقدر است؟ می‌توانم بر همان اساس مدل‌ها را محدود کنم. اگر نو می‌خواهی یا محله خاصی مدنظرت است، آن را هم بگو.",
+   "citations": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    2,
+    3,
+    5,
+    4
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    2800000.0,
+    71000000.0,
+    105000000.0,
+    155000000.0,
+    169000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "n1",
+   "kind": "not_found",
+   "request": "تلویزیون ۵۵ اینچ لایکا",
+   "seconds": 16.4,
+   "first_tool_seconds": 2.7,
+   "tools": [
+    "update_preferences",
+    "search_products",
+    "find_web_alternatives",
+    "suggest_shopping_areas"
+   ],
+   "error": null,
+   "rounds": 3,
+   "cards": [],
+   "card_fidelity": [],
+   "reply": "در دیتاست ترب محصولی مطابق «تلویزیون ۵۵ اینچ لایکا» پیدا نشد. فیلترهای فعال: تلویزیون ۵۵ اینچ و برند لایکا. این فقط درباره دیتاست است و نبودش در بازار را ثابت نمی‌کند.\n\nگزینه‌های فروشگاه‌های شهر شما از وب جمع‌آوری می‌شود و با قیمت، آدرس و نقشه در پنل نمایش داده می‌شود. این‌ها سرنخ عمومی تأییدنشده‌اند و پیش از رفتن باید تلفنی موجودی و قیمت را بپرسید.\n\nبرای خرید حضوری، سه محدوده در نمونه کاتالوگ فروشگاه تلویزیون دارند:\n- **شیخ هادی** با ۶۳ فروشگاه\n- **فردوسی** با ۳۹ فروشگاه\n- **ایرانشهر** با ۳ فروشگاه\n\nاین‌ها فقط سرنخ ناحیه‌ای هستند و موجودی مدل لایکا را تأیید نمی‌کنند.\n\nاگر برندتان قطعی نیست، می‌خواهید برندهای دیگر ۵۵ اینچ را در دیتاست ببینم؟ در این صورت فیلتر برند را برمی‌دارم.",
+   "citations": [],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": true,
+   "price_mentions": [],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "n4",
+   "kind": "not_found",
+   "request": "ماشین ظرفشویی بوش",
+   "seconds": 24.2,
+   "first_tool_seconds": 3.2,
+   "tools": [
+    "update_preferences",
+    "search_products",
+    "search_query_round",
+    "search_products",
+    "find_web_alternatives",
+    "suggest_shopping_areas"
+   ],
+   "error": null,
+   "rounds": 5,
+   "cards": [
+    {
+     "title": "قطعات یدکی لوازم خانگی بزرگ پمپ حرارتی ماشین ظرفشویی زیمنس پروفیلو اصل 00755078 ",
+     "price": 17800000.0,
+     "intent": false,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_eb54b07bdf8542bfb37a88d3",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب ماشین ظرفشویی بوش پیدا نشد. نتیجه‌ها فقط پودر جرم‌گیر، یک قطعه یدکی (پمپ حرارتی) و یک «بوش فلزی» صنعتی بودند و هیچ‌کدام خود دستگاه نیستند. این فقط درباره‌ی نمونه‌ی کوچک دیتاست است و به معنی نبودن کالا در بازار نیست.\n\nفروشگاه‌های شهر شما را از وب جمع می‌کنم. گزینه‌ها همراه با قیمت، آدرس و نقشه در پنل نمایش داده می‌شوند. این‌ها سرنخ عمومی تأییدنشده‌اند و پیش از رفتن باید تلفنی موجودی و قیمتشان را بپرسید.\n\nبرای خرید حضوری، دیتاست چند محدوده‌ی دارای دسته‌ی ماشین ظرفشویی نشان می‌دهد: **شیخ هادی** (۱۱ فروشگاه)، **فردوسی** (۲ فروشگاه) و **تهران پارس** (۱ فروشگاه). ثبت دسته به معنی موجود بودن بوش نیست.\n\nبودجه‌تان تقریباً چقدر است، و ظرفیت ۱۲ نفره یا ۱۳ نفره می‌خواهید؟ با این دو مورد می‌توانم جست‌وجو را دقیق‌تر کنم.",
+   "citations": [],
+   "citations_valid": true,
+   "cites_when_cards": false,
+   "says_not_found": true,
+   "expected_not_found": true,
+   "price_mentions": [],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "n7",
+   "kind": "not_found",
+   "request": "یک مایکروویو خوب زیر ۸ میلیون",
+   "seconds": 27.2,
+   "first_tool_seconds": 2.7,
+   "tools": [
+    "update_preferences",
+    "search_products",
+    "search_query_round",
+    "list_categories",
+    "list_categories",
+    "search_query_round",
+    "find_web_alternatives",
+    "suggest_shopping_areas"
+   ],
+   "error": null,
+   "rounds": 6,
+   "cards": [
+    {
+     "title": "ظرف ماکروویوی شفاف بسته 1 عددی - پیکنیک هوم",
+     "price": 8800.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "ظرف مایکروویو 800CC شفاف - کلیز هوم",
+     "price": 620900.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "ماژول سنسور تشخیص حرکت RCWL- 0516 مایکروویو",
+     "price": 88700.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "پنل روکار سنسوردار مایکروویو 18 وات گرد ویسنا (VSPSR-18-P)",
+     "price": 696000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "پنل روکار سنسوردار مایکروویو 18 وات مربع ویسنا (VSPSQ-18-P)",
+     "price": 732000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "ماژول تشخیص حرکت مایکروویو مدل HLK-LD2410B",
+     "price": 956500.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "پنل هوشمند سنسور دار مایکروویو روکار 20وات روکار زیبا نور",
+     "price": 1760000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "چراغ روکار 15 وات اضطراری با سنسور حرکتی ماکروویو مروارید برند آلتون",
+     "price": 3800000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "لامپ ماکروویو 220 ولت 25 وات مدل DWE25W",
+     "price": 150000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "کوبل سینی گردان ماکروفر سامسونگ پایه بلند",
+     "price": 350000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "کوبل سولاردام ال جی کد 001 مناسب برای مایکروویو",
+     "price": 380000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "کوبل سولاردام ال جی کد 001 مناسب برای مایکروویو",
+     "price": 380000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "کوبل سینی گردان ماکروفر سامسونگ پایه بلند",
+     "price": 450000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "کوبل سولاردام ال جی کد 001 مناسب برای مایکروویو",
+     "price": 497000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "موتور گردان سولاردام ال جی",
+     "price": 1380000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    },
+    {
+     "title": "مگنترون مایکروفر ال جی مدل 2M214",
+     "price": 6590000.0,
+     "intent": false,
+     "constraints": {
+      "budget": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_22a91862c0a6e225d96c2691",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_41a0ec1e82ef51cf06566a1c",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_cbe635a26928296e3c4c09de",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_f9d670d758a429c69383f991",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_b9c7ecb7f53ab48c4538e447",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_dd63c5f6295447d2e304ff59",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_fea45cc5aca6cf4816581e6f",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_4c778ccbd212a281dcb50714",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_caaf063048fdf639a59f0d17",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_8f6aa65d6f34e52d3137e2fe",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_f00e6888fea7be8ab842d43f",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_ec9e6b8941d9605818adb621",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_f32002606857f42eecebe9e1",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_9a7680266b2683712dea51b4",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_98ac6694e1e21f41445bec3a",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_43b58979c02bf2e6c05ebf77",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب، مایکروویوی واقعی (خود دستگاه) زیر ۸ میلیون تومان پیدا نشد. نتیجه‌ها فقط لوازم جانبی بودند، مثل ظرف مایکروویو، کوبل، لامپ و سنسور. این‌ها پیشنهاد من نیستند. این فقط مربوط به نمونهٔ دیتاست است و نبودِ کالا در بازار را ثابت نمی‌کند.\n\nفیلتر فعال: مایکروویو، حداکثر ۸ میلیون تومان.\n\nگزینه‌های مشابه را از وب‌سایت فروشگاه‌های تهران جمع می‌کنم. با قیمت، آدرس و نقشه در پنل نمایش داده می‌شوند. این‌ها سرنخ‌های تأییدنشده‌اند و قبل از رفتن باید تلفنی موجودی و قیمتشان را بپرسید.\n\nبرای خرید حضوری، محدودهٔ **شیخ هادی** و بعد **فردوسی** بیشترین فروشگاه‌های دارای دستهٔ مایکروویو را در نمونهٔ کاتالوگ دارند. این به معنی موجود بودن مدل خاصی نیست.\n\nظرفیت یا نوع مایکروویو (فقط گرم‌کن یا گریل‌دار) برایتان مهم است؟ با آن، جست‌وجو را دقیق‌تر می‌کنم.",
+   "citations": [],
+   "citations_valid": true,
+   "cites_when_cards": false,
+   "says_not_found": true,
+   "expected_not_found": true,
+   "price_mentions": [
+    8000000.0,
+    8000000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "t2",
+   "kind": "trap",
+   "request": "جارو برقی",
+   "seconds": 10.3,
+   "first_tool_seconds": 2.2,
+   "tools": [
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "جارو برقی مخزنی سامسونگ مدل 4570",
+     "price": 20900000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "جارو برقی شیائومی مدل DEM-TJ310W با قدرت مکش ۳۱۰ وات",
+     "price": 23500000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "جارو برقی فیلیپس مدل XB2022 توان ۱۸۰۰ وات",
+     "price": 38400000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "جارو برقی سامسونگ 2200وات",
+     "price": 41000000.0,
+     "intent": true,
+     "constraints": {}
+    },
+    {
+     "title": "جارو برقی عصایی میگل مدل GSV600 با قدرت مکش ۶۰۰ وات",
+     "price": 7900000.0,
+     "intent": true,
+     "constraints": {}
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_0e8672e3acb8cbe093d621b2",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_3c04cd4c324f967bf8d44d39",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_97f9090bfc3a00d6e070ddac",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_18a704dcd2dd0e7b3cff682f",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_41cb208273882263cd9d2c7a",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب چند جارو برقی در بازه‌های قیمتی مختلف پیدا کردم. قیمت‌ها قیمت دیتاست‌اند و زنده نیستند. بازه قیمتی هم نشان‌دهنده کیفیت نیست.\n\n- **اقتصادی:** [5] جارو عصایی میگل، ۷٫۹ میلیون تومان. شارژی است، فیلتر هپا دارد و ۲۴ ماه گارانتی ثبت شده. طبق برنامه باز است.\n- **میانی:** [1] سامسونگ مخزنی ۴۵۷۰، ۲۰٫۹ میلیون. توان مصرفی ۲۰۰۰ وات، مخزن ۱٫۳ لیتر، صدای ۸۲ دسی‌بل. طبق برنامه باز است. [2] شیائومی TJ310W، ۲۳٫۵ میلیون. بدون کیسه با مخزن ۲٫۵ لیتر، و ۷ روز گارانتی اصالت. ساعت کاری‌اش نامشخص است.\n- **بالاتر:** [3] فیلیپس XB2022 با ۳۸٫۴ میلیون و [4] سامسونگ ۲۲۰۰ وات با ۴۱ میلیون. طبق برنامه هر دو الان بسته‌اند. مشخصات [4] هم در دیتاست ثبت نشده.\n\nموجودی هیچ‌کدام تأیید نشده است. پوشش دیتاست هم محدود است و همه فروشگاه‌های تهران را شامل نمی‌شود.\n\nبودجه‌تان تقریباً چقدر است؟ محله یا منطقه‌ای که برایتان مناسب‌تر است را هم بگویید تا نتیجه‌ها را محدود کنم.",
+   "citations": [
+    5,
+    1,
+    2,
+    3,
+    4,
+    4
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": false,
+   "price_mentions": [
+    7900000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "x1",
+   "kind": "multi",
+   "request": "هدفون بی‌سیم زیر ۲ میلیون در شیخ هادی که الان باز باشه",
+   "seconds": 13.0,
+   "first_tool_seconds": 3.2,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "ایرپاد بی سیم سامسونگ مدل K30",
+     "price": 185000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "area": true,
+      "open": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم اپل مدل ایرپاد پرو 2 نویز کنسلینگ",
+     "price": 830000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "area": true,
+      "open": true
+     }
+    },
+    {
+     "title": "هدفون بی سیم اپل مدل ایرپاد پرو 2",
+     "price": 830000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "area": true,
+      "open": true
+     }
+    },
+    {
+     "title": "هندزفری با سیم جی بی ال T205",
+     "price": 1600000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "area": true,
+      "open": true
+     }
+    },
+    {
+     "title": "هندزفری بلوتوثی بی سیم للیسو مدل LS99 با قابلیت نویز کنسلینگ",
+     "price": 1600000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "area": true,
+      "open": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_fe50a7b906fe4fd589d2e31d",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_4b77afce6859bf4acaf35d5e",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_cc0128a6fd4793755263fa70",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_2f177397457c952e687c8f58",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    },
+    {
+     "offer_id": "offer_59a553b454d6f0578c28bf61",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در شیخ هادی، زیر ۲ میلیون و طبق برنامهٔ ثبت‌شده باز، چند گزینه پیدا شد. قیمت‌ها قیمت دیتاست‌اند، نه قیمت زنده، و موجودی هیچ‌کدام تأیید نشده است.\n\n- **[3]** ایرپاد پرو ۲ اپل، ۸۳۰ هزار تومان، پاساژ علاالدین، طبقه زیر همکف، پلاک ۴۴. بلوتوث ۵.۳ دارد. قیمتش برای این مدل خیلی پایین است. حتماً اصالت و گارانتی را بپرسید.\n- **[2]** همان فروشگاه و همان قیمت. مشخصاتش برند «بای بلونا» را ثبت کرده و با عنوان اپل تضاد دارد. احتمالاً کپی است.\n- **[5]** هندزفری دورگردنی للیسو LS99، ۱٫۶ میلیون تومان، همان پاساژ. نویزکنسلینگ و بلوتوث ۵.۳ دارد.\n- **[1]** سامسونگ K30، ۱۸۵ هزار تومان، پاساژ آلومینیوم، طبقه ۱۲، واحد ۱۲۴۰. ارزان‌ترین گزینه است، ولی قیمتش حدود ۲۹۸ روز قدمت دارد.\n\nمورد [4] با سیم است و کنار گذاشته شد.\n\nبیشتر برایتان نویزکنسلینگ مهم است یا کم‌ترین قیمت؟",
+   "citations": [
+    3,
+    2,
+    5,
+    1,
+    4
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": false,
+   "expected_not_found": false,
+   "price_mentions": [
+    830000.0,
+    1600000.0,
+    185000.0
+   ],
+   "hallucinated_prices": []
+  },
+  {
+   "id": "x3",
+   "kind": "multi",
+   "request": "گوشی شیائومی زیر ۱۵ میلیون در فردوسی",
+   "seconds": 8.9,
+   "first_tool_seconds": 3.3,
+   "tools": [
+    "update_preferences",
+    "search_products"
+   ],
+   "error": null,
+   "rounds": 2,
+   "cards": [
+    {
+     "title": "گوشی موبایل شیائومی مدل Redmi Note 10",
+     "price": 4500000.0,
+     "intent": true,
+     "constraints": {
+      "budget": true,
+      "area": true
+     }
+    }
+   ],
+   "card_fidelity": [
+    {
+     "offer_id": "offer_8301720d9bf5c82e875ae0fd",
+     "exists": true,
+     "price_matches": true,
+     "age_matches": true,
+     "stock_unknown_without_report": true,
+     "identity_matches": true
+    }
+   ],
+   "reply": "در دیتاست ترب فقط یک گوشی شیائومی زیر ۱۵ میلیون تومان در محدوده فردوسی پیدا شد:\n\n- **[1] شیائومی Redmi Note 10**، ۴٫۵ میلیون تومان، فروشگاه «فرورا سرونوش». آدرس: خیابان حافظ، سیمی، شاطری پلاک ۹ واحد ۳. این گوشی صفحه ۶٫۴۳ اینچ، دوربین ۴۸ مگاپیکسل و باتری ۵۰۰۰ میلی‌آمپرساعت دارد.\n\nچند نکته درباره این پیشنهاد:\n- قیمت مربوط به دیتاست است و زنده نیست. آخرین تغییرش حدود ۴۸ روز پیش بوده.\n- موجودی، گارانتی و ساعت کاری فروشگاه نامشخص است.\n- فقط حدود ۱۰٪ فروشگاه‌های تهران در دیتاست هستند. نبودن مدل‌های دیگر در دیتاست، نبودنشان در بازار را ثابت نمی‌کند.\n\nاگر بخواهید، پیام استعلام موجودی و گارانتی را برایتان آماده می‌کنم. یا می‌توانم شعاع جستجو را به محله‌های اطراف فردوسی گسترش بدهم. آن را انجام بدهم؟",
+   "citations": [
+    1
+   ],
+   "citations_valid": true,
+   "cites_when_cards": true,
+   "says_not_found": true,
+   "expected_not_found": false,
+   "price_mentions": [
+    15000000.0,
+    4500000.0
+   ],
+   "hallucinated_prices": []
+  }
+ ],
+ "metrics": {
+  "queries": 17,
+  "errors": 0,
+  "card_intent_precision": 100.0,
+  "card_constraint_satisfaction": 100.0,
+  "answers_with_results": 100.0,
+  "not_found_stated_when_expected": 100.0,
+  "false_not_found_when_results_exist": 0.0,
+  "citations_valid": 100.0,
+  "cites_cards_when_results_expected": 100.0,
+  "price_mentions": 44,
+  "hallucinated_price_rate": 0.0,
+  "fidelity": {
+   "exists": 100.0,
+   "price_matches": 100.0,
+   "age_matches": 100.0,
+   "stock_unknown_without_report": 100.0,
+   "identity_matches": 100.0
+  },
+  "synthetic_names_disclosed": true,
+  "seconds": {
+   "p50": 11.1,
+   "p95": 27.2,
+   "max": 27.2
+  },
+  "mean_rounds": 2.5
+ }
+}
