@@ -67,7 +67,15 @@ class Memory:
                 if fact['value'] is None:out.pop(key,None)
                 else:out[key]=dict(fact,key=key,scope='trip')
         return list(out.values())
-    def profile(self,uid,sid=None):return {x['key']:x['value'] for x in self.facts(uid,sid)}
+    def profile(self,uid,sid=None):
+        facts=self.facts(uid,sid);out={x['key']:x['value'] for x in facts}
+        # The request a brand was named in scopes it (catalog.brand_family): its quote, plus the product asked for in the same message.
+        brand=next((x for x in facts if x['key']=='brand'),None)
+        if brand:
+            asked=next((x for x in facts if x['key']=='product_query'),None)
+            same=asked and abs(float(asked.get('updated') or 0)-float(brand.get('updated') or 0))<120
+            out['brand_scope']=' '.join(x for x in (brand.get('quote') or '',asked['value'] if same else '') if x)
+        return out
     def update(self,uid,updates,source='form',message='',sid=None):
         accepted=[]
         for fact in updates:
