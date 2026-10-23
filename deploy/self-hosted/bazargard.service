@@ -1,0 +1,21 @@
+# Bazargard API + bundled frontend (single uvicorn worker: SQLite + in-process jobs).
+# Template: deploy/self-hosted/install.sh renders @APP_DIR@ @APP_USER@ @ENV_FILE@ @PORT@.
+[Unit]
+Description=Bazargard (Torob shopping assistant)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=@APP_USER@
+WorkingDirectory=@APP_DIR@/backend
+EnvironmentFile=@ENV_FILE@
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@APP_DIR@/.venv/bin/uvicorn server:app --host 127.0.0.1 --port @PORT@ --workers 1 --proxy-headers --forwarded-allow-ips=127.0.0.1 --no-access-log
+Restart=always
+RestartSec=4
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

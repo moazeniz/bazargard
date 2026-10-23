@@ -1,0 +1,20 @@
+# Build context for the root Dockerfile (also mirrored in .liaraignore).
+.git
+.github
+.venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/*.db*
+**/*.gz
+.env*
+**/.env*
+data
+backups
+dist
+frontend/dist
+tests
+docs
+*.zip
+*.log
