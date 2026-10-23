@@ -61,6 +61,8 @@ def test_profile_scopes_the_brand_to_the_request_that_named_it(tmp_path):
     p=mem.profile(uid,sid);assert p['brand']=='گارمین' and 'ساعت هوشمند' in p['brand_scope']
     mem.update(uid,[{'key':'brand','value':None,'quote':'برند مهم نیست'}],'chat','برند مهم نیست',sid)
     assert 'brand_scope' not in mem.profile(uid,sid)
+    mem.update(uid,[{'key':'brand','value':'گارمین','quote':'تنظیم توسط کاربر'}],'form','',sid)  # filter form: no product words to scope by
+    assert 'تنظیم' not in mem.profile(uid,sid)['brand_scope']
 
 @pytest.mark.asyncio
 async def test_results_page_search_after_a_watch_request(tmp_path,monkeypatch,cat):

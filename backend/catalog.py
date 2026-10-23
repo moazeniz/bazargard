@@ -267,7 +267,8 @@ class Catalog:
                 try:rows=[r[0] for r in c.execute('select p.category_name,count(*) n from product_fts f join products p on p.rowid=f.rowid where product_fts match ? group by 1 order by n desc limit 25',(self.fts_match(terms),))]
                 except sqlite3.Error:rows=[]
                 # Categories named by the query's own words (گوشی → «گوشی موبایل») beat merely frequent ones (screen protectors).
-                named=[r for r in rows if set(normalize(r).replace('،',' ').split())&set(terms)]
+                overlap=lambda r:len(set(normalize(r).replace('،',' ').split())&set(terms))
+                named=sorted((r for r in rows if overlap(r)),key=overlap,reverse=True)  # stable: equally named keep frequency order
                 if rows:return frozenset(named[:4] or rows[:3])
                 terms=terms[:-1]
         return frozenset()
@@ -300,7 +301,7 @@ class Catalog:
             if loose.get('offers'):result=loose;note={'key':'brand','value':brand,'reason':'no_match'}
         if note:
             result['relaxed_preferences']=[note]
-            result['preference_notice']=(f'برند «{brand}» که برای درخواست دیگری گفته بودید، روی این جست‌وجو اعمال نشد.' if note['reason']=='other_category'
+            result['preference_notice']=(f'برند «{brand}» مربوط به کالای دیگری است و روی این جست‌وجو اعمال نشد.' if note['reason']=='other_category'
                                          else f'با برند «{brand}» نتیجه‌ای نبود؛ نتایج بدون شرط برند نمایش داده شده‌اند.')
         return result
 

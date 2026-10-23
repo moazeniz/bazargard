@@ -74,7 +74,8 @@ class Memory:
         if brand:
             asked=next((x for x in facts if x['key']=='product_query'),None)
             same=asked and abs(float(asked.get('updated') or 0)-float(brand.get('updated') or 0))<120
-            out['brand_scope']=' '.join(x for x in (brand.get('quote') or '',asked['value'] if same else '') if x)
+            said=brand.get('quote') if brand.get('source')=='chat' else ''  # form edits carry a generic note, not the user's words
+            out['brand_scope']=' '.join(x for x in (said or '',asked['value'] if same else '') if x)
         return out
     def update(self,uid,updates,source='form',message='',sid=None):
         accepted=[]
