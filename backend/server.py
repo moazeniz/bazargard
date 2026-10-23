@@ -27,6 +27,8 @@ ROOT=Path(__file__).resolve().parent.parent
 DATA=Path(os.getenv('DATA_DIR',str(ROOT/'data')));DATA.mkdir(parents=True,exist_ok=True)
 cat=Catalog(DATA/'catalog.db');mem=Memory(DATA/'memory.db');agent=Agent(cat,mem)
 features=Features(cat,mem,agent);agent.features=features
+from freshness import Freshness
+fresh=Freshness(DATA/'memory.db',cat);cat.freshness=fresh  # «تازه‌سازی قیمت»: global seller/web/crowd price updates
 app=FastAPI(title='Hamrah Shopping Agent',docs_url='/api/docs',redoc_url=None,openapi_url='/api/openapi.json')
 locks={};limits=defaultdict(deque);chat_gate=asyncio.Semaphore(4);CHAT_HEARTBEAT_SECONDS=10
 # Durable queue (retries, dead letter, restart recovery) for every background job.
@@ -224,6 +226,7 @@ def search(body:SearchBody,req:Request):
     from price_policy import initial
     spread=not body.product_ids and initial(body.query,body.query,mem.results(u,body.session_id),body.sort,mem.profile(u,body.session_id))
     result=cat.search(body.query,mem.profile(u,body.session_id),exclude_shops=agent.exclusions(u,body.session_id),product_ids=body.product_ids or None,sort=body.sort,exclude_pairs=agent.unavailable_pairs(u,body.session_id),seller_events=mem.events(u,body.session_id),discovery=spread)
+    fresh.demand(result.get('offers'),'search')
     if not result['offers'] and body.recognized_model:
         result=cat.search(body.recognized_model,mem.profile(u,body.session_id),seller_events=mem.events(u,body.session_id))
         result['notice']='عبارت کامل نتیجه نداشت؛ جست‌وجو با مدل خوانده‌شده از عکس انجام شد. فیلترهای خرید حفظ شده‌اند؛ نوع و مدل دقیق را بررسی کنید.'
@@ -348,6 +351,7 @@ def seller_event(body:EventBody,req:Request):
     try:agent.contact(body.shop_id,body.product_id)
     except ValueError:raise HTTPException(404)
     mem.event(u,body.session_id,body.model_dump())
+    if body.status=='reported' and body.price:fresh.crowd(u,body.shop_id,body.product_id,None,body.price)  # counts globally only when shoppers agree
     r=agent.alternatives(u,body.session_id,body.product_id)
     r=agent.overlay(u,body.session_id,r);mem.results(u,body.session_id,r)
     return {'events':mem.events(u,body.session_id),'results':r,'source':'user_reported'}
@@ -377,7 +381,9 @@ class RouteBody(BaseModel):
     shop_ids:list[str]=Field(max_length=4)
     session_id:str
 @app.post('/api/route')
-async def route(body:RouteBody,req:Request):return await features.plan(session(req,body.session_id),body.session_id,body.shop_ids)
+async def route(body:RouteBody,req:Request):
+    u=session(req,body.session_id);fresh.demand([{'shop_id':s} for s in body.shop_ids],'visit')  # an upcoming visit raises refresh priority
+    return await features.plan(u,body.session_id,body.shop_ids)
 
 class RequestBody(BaseModel):
     session_id:str;offer_id:str
@@ -415,6 +421,66 @@ def merchant_reply(token:str,body:MerchantReplyBody,req:Request):
     rate(req,'merchant_reply',100)
     try:return features.merchant_reply(token,body.model_dump())
     except (ValueError,TypeError,KeyError) as e:raise HTTPException(422,str(e))
+
+# ---- «تازه‌سازی قیمت»: seller one-tap links, refresh queue, crowd reports, web check, estimates
+def public_base(req):
+    prefix=req.headers.get('x-forwarded-prefix','')
+    return str(req.base_url).rstrip('/')+prefix+'/' if prefix else os.getenv('PUBLIC_BASE_URL') or str(req.base_url)
+class OffersBody(BaseModel):
+    session_id:str;offer_ids:list[str]=Field(default_factory=list,max_length=30)
+@app.post('/api/offers/refresh')
+def offers_refresh(body:OffersBody,req:Request):
+    """Current price, basis and freshness of plan items: seller updates flow back into the plan and tracker."""
+    u=session(req,body.session_id,read=True)
+    if not body.offer_ids:return {'offers':[]}
+    r=cat.search(profile={},offer_ids=body.offer_ids,seller_events=mem.events(u,body.session_id),full=True)
+    fresh.demand(r['offers'],'plan',30);out=[]
+    for o in r['offers']:
+        if o.get('price_confirmed_today') and o.get('price_basis')=='merchant_link':
+            try:
+                if (features.followups(u,body.session_id).get(o['shop_id']) or {}).get('status')!='confirmed':features.set_followup(u,body.session_id,o['shop_id'],'confirmed',o['product_id'],'price_link')
+            except ValueError:pass
+        out.append({k:o.get(k) for k in CARD_FIELDS+('price_confirmed_at','price_confirmed_today','freshness_label','price_estimate','price_stale','price_source_url')})
+    return {'offers':out,'missing':[i for i in body.offer_ids if i not in {o['offer_id'] for o in out}]}
+class AskBody(BaseModel):
+    session_id:str;shop_id:str=Field(max_length=80)
+@app.post('/api/freshness/ask')
+def freshness_ask(body:AskBody,req:Request):
+    u=session(req,body.session_id,read=True);rate(req,'price_ask',60)
+    try:r=fresh.ask(body.shop_id,public_base(req),'shopper')
+    except ValueError as e:raise HTTPException(404,str(e))
+    try:features.set_followup(u,body.session_id,body.shop_id,'asked',channel='price_link')
+    except ValueError:pass
+    return r
+@app.get('/api/shop-link/{token}')
+def shop_link(token:str):
+    try:return fresh.shop_page(token)
+    except ValueError as e:raise HTTPException(404,str(e))
+class ShopUpdateItem(BaseModel):
+    offer_id:str=Field(max_length=80);action:Literal['same','price','unavailable'];price:float|None=Field(default=None,ge=0,le=1e13)
+class ShopUpdateBody(BaseModel):
+    items:list[ShopUpdateItem]=Field(min_length=1,max_length=60)
+@app.post('/api/shop-link/{token}')
+def shop_link_update(token:str,body:ShopUpdateBody,req:Request):
+    rate(req,'shop_link',300)
+    try:return fresh.shop_update(token,[i.model_dump() for i in body.items],req.headers.get('user-agent',''))
+    except ValueError as e:raise HTTPException(422,str(e))
+@app.get('/api/freshness/queue')
+def freshness_queue(limit:int=30):
+    return {'queue':fresh.queue(min(max(limit,1),60)),'stats':fresh.stats()}
+class AutoAskBody(BaseModel):
+    top:int=Field(default=5,ge=1,le=10)
+@app.post('/api/freshness/auto-ask')
+def freshness_auto_ask(body:AutoAskBody,req:Request):
+    rate(req,'price_auto_ask',30);return {'sent':fresh.auto_ask(public_base(req),body.top)}
+class WebCheckBody(BaseModel):
+    offer_id:str=Field(max_length=80)
+@app.post('/api/freshness/web-check')
+async def freshness_web_check(body:WebCheckBody,req:Request):
+    rate(req,'price_web_check',20)
+    try:return await fresh.web_check(body.offer_id)
+    except ValueError as e:raise HTTPException(404,str(e))
+    except llm.LLMError:raise HTTPException(503,'بررسی وب الان در دسترس نیست؛ کمی بعد دوباره امتحان کنید.')
 
 @app.get('/api/quotes/{sid}')
 def quotes(sid:str,req:Request):return {'quotes':features.quotes(session(req,sid),sid)}
