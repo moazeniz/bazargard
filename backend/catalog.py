@@ -79,6 +79,7 @@ class ClosingConnection(sqlite3.Connection):
         finally:self.close()
 
 class Catalog:
+    freshness=None  # freshness.Freshness: global seller/web/crowd price updates (set by the server)
     @staticmethod
     def fts_match(terms):
         groups=[]
@@ -197,6 +198,7 @@ class Catalog:
         if live:
             if live.get('available') is not None or live['status']=='unavailable':
                 d['availability']=live['source']+('_available' if live.get('available')==1 and live['status']!='unavailable' else '_unavailable')
+        if self.freshness:self.freshness.apply(d)  # a seller/web/crowd update newer than the dataset price
         quote=reports.latest(d['shop_id'],d['product_id'],[e for e in reports.real if e['source']=='merchant_link'])
         if quote:d['merchant_quote']=quote.get('details',{})
         at=at or self.visit_time(p)
@@ -242,9 +244,12 @@ class Catalog:
         for d in found:
             ps=(d['effective_price_toman']-low)/max(high-low,1);ds=min((d['distance_km'] or 0)/15,1)
             closed=.22 if d['opening']['state']=='closed' else .08 if d['opening']['state']=='unknown' else 0
-            d['score']=round(100*(1-min(1,.5*ps+.3*ds+closed)),1)
+            # A little less trust in old unconfirmed prices; a seller-confirmed price today gets a small lift.
+            age=d.get('price_age_days') or 0;stale=-.04 if d.get('price_confirmed_today') else .05 if age>=60 and d.get('price_basis')=='dataset' else .02 if age>=30 and d.get('price_basis')=='dataset' else 0
+            d['score']=round(100*(1-min(1,max(0,.5*ps+.3*ds+closed+stale))),1)
             d['why']=['قیمت مبنای بررسی در محدوده بودجه' if p.get('budget_max_toman') else 'قیمت قابل مقایسه با سایر پیشنهادها']
-            if d['price_basis']!='dataset':d['why'].append('محدودیت قیمت بر اساس آخرین گزارش معتبر؛ تأیید مستقل نیست')
+            if d.get('price_confirmed_today') and d['price_basis']=='merchant_link':d['why'].append('قیمت امروز با لینک فروشنده تأیید شده است')
+            elif d['price_basis']!='dataset':d['why'].append('محدودیت قیمت بر اساس آخرین گزارش معتبر؛ تأیید مستقل نیست')
             if d['distance_km'] is not None:d['why'].append(f"فاصله مستقیم {d['distance_km']} کیلومتر")
             if d['in_person_credit']:d['why'].append('اعتبار حضوری با مبلغ مبنای بررسی سازگار است')
         priority=p.get('priority') or sort
@@ -299,6 +304,7 @@ class Catalog:
         if scoped and p.get('brand') and not result.get('offers'):
             loose=self._search(query,dict(p,brand=None),*args,**kw)
             if loose.get('offers'):result=loose;note={'key':'brand','value':brand,'reason':'no_match'}
+        if self.freshness and len(result.get('offers') or [])<=80:self.freshness.annotate(result['offers'])
         if note:
             result['relaxed_preferences']=[note]
             result['preference_notice']=(f'برند «{brand}» مربوط به کالای دیگری است و روی این جست‌وجو اعمال نشد.' if note['reason']=='other_category'
@@ -309,7 +315,10 @@ class Catalog:
         p=profile or {};limit=min(max(int(limit),1),3000 if full else 30);corrected=[]
         args=[]; clauses=['effective_price>0'];rank='0.0';join=''
         if full:discovery=False
-        reports=SellerReports(seller_events or []);updates=reports.price_updates();cte='';price_join='';effective='o.price_toman'
+        reports=SellerReports(seller_events or []);updates=dict(reports.price_updates());cte='';price_join='';effective='o.price_toman'
+        if self.freshness:
+            for k,g in self.freshness.prices().items():
+                if k not in updates and g.get('price'):updates[k]={'price':g['price']}
         if updates:
             cte='WITH reported_prices(shop_id,product_id,price) AS (VALUES '+','.join('(?,?,?)' for _ in updates)+') '
             for (shop,pid),e in updates.items():args.extend([shop,pid,e['price']])
@@ -388,7 +397,7 @@ class Catalog:
             for k in ['image_urls','specs','contacts','payment_options','weekly_hours']:d[k]=parsed(d[k],{} if k=='weekly_hours' else [])
             # Typed spec projections are costly: only spec filters need them here; returned offers get them below.
             d=self.hydrate_offer(d,p,reports,at,canonical=bool(p.get('spec_filters')))
-            if not self.eligible(d,p,reports):continue
+            if not self.eligible(d,p,reports) or d.get('seller_withdrawn'):continue
             try: age=max(0,(now-datetime.fromisoformat(d['last_price_changed_at'])).total_seconds()/86400)
             except (ValueError,TypeError):age=None
             d['price_age_days']=round(age,1) if age is not None else None
