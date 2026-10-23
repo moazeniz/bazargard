@@ -1,18 +1,33 @@
 # Bazargard (بازارگرد) — AI in-person shopping assistant for Tehran
 
 [![CI](https://github.com/moazeniz/bazargard/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/moazeniz/bazargard/actions/workflows/ci.yml) [![Deploy](https://github.com/moazeniz/bazargard/actions/workflows/deploy.yml/badge.svg)](https://github.com/moazeniz/bazargard/actions/workflows/deploy.yml) [![Liara](https://img.shields.io/badge/Liara-bazargard--ai-5a2be2)](https://bazargard-ai.liara.run) [![status](https://img.shields.io/badge/status-page-success)](https://negahban-sre.liara.run/status) ![secrets](https://img.shields.io/badge/gitleaks-full%20history-informational) ![sbom](https://img.shields.io/badge/SBOM-SPDX%20%2B%20CycloneDX-informational)
-![release](https://img.shields.io/badge/release-4.4.1-blue) ![python](https://img.shields.io/badge/python-3.12%2B-informational) ![license](https://img.shields.io/badge/license-MIT-green)
+![release](https://img.shields.io/badge/release-4.5.0-blue) ![python](https://img.shields.io/badge/python-3.12%2B-informational) ![license](https://img.shields.io/badge/license-MIT-green)
 
 > **خلاصه فارسی —** بازارگرد یک دستیار خرید حضوری فارسی (راست‌به‌چپ) برای تهران است که برای چالش «ترب» در هکاتون Agentic AI استارکوچ ساخته شده. کاربر نیازش را در گفت‌وگو می‌گوید؛ دستیار در کاتالوگ ترب (۲۲۵ هزار محصول، ۳۳۱ هزار پیشنهاد، ۶٬۴۷۶ فروشگاه) جست‌وجو می‌کند، محصولات را با مشخصات واقعی مقایسه می‌کند، فروشنده‌ها را بر اساس قیمت، فاصله، ساعت کاری و خرید اقساطی فیلتر می‌کند، مسیر بازدید و پیش‌نویس پیام به فروشنده می‌سازد و هیچ ادعایی را بدون منبع مطرح نمی‌کند. بک‌اند FastAPI + SQLite، فرانت‌اند React/Vite؛ مدل زبانی Anthropic از طریق دروازهٔ آروان و رله (با BoxAPI به‌عنوان جایگزین خودکار). استقرار اصلی روی لیارا (اپ Docker با دیسک دائمی `/data`) است. راهنمای کامل پروژه: [فارسی](docs/PROJECT_GUIDE.fa.md) · [English](docs/PROJECT_GUIDE.en.md).
 
 Bazargard is a Persian, right-to-left shopping assistant that takes a shopper from *"I need a phone for my mother under 20 million toman near Valiasr"* to a verified shortlist of real offers, an opening-hours-aware visit route, seller inquiry drafts and a cost/instalment breakdown — while keeping every claim tied to the catalogue, a seller reply, or a labelled public source.
 
 - **Challenge:** Torob — *in-person shopping assistant* (Starcoach Agentic AI Hackathon, October 2026).
-- **Status:** release **4.4.1**, live on **Liara** as the Docker app `bazargard-ai` (persistent `/data` disk).
+- **Status:** release **4.5.0**, live on **Liara** as the Docker app `bazargard-ai` (persistent `/data` disk).
 - **Project guide / راهنمای کامل پروژه:** [English](docs/PROJECT_GUIDE.en.md) · [فارسی](docs/PROJECT_GUIDE.fa.md)
 - **LLM:** switchable provider (`LLM_PROVIDER=anthropic|boxapi`). In production, Anthropic (`claude-sonnet-5-5`) is the primary provider, reached through the Arvan LLM gate and the relay. BoxAPI (`openai/gpt-6.1-sol`) takes over automatically on 429, 5xx, credit or timeout errors.
 - **Hardening:** a prompt-injection and abuse guard (`backend/guard.py`) covers 52 attack classes. It passed all 106 red-team checks against a real model ([redteam/REPORT.md](redteam/REPORT.md), [docs/SECURITY.md](docs/SECURITY.md)).
 - **Operations:** JSON logs with request and trace IDs, retries with circuit breakers, and a durable job queue with admin endpoints.
+
+## Tests & benchmarks · تست‌ها و بنچمارک
+
+> خلاصه: جست‌وجو روی ۶۱ درخواست برچسب‌دار فارسی دقت ۹۵٫۸٪ در ۵ نتیجه‌ی اول دارد و همه‌ی قیدهای سخت را رعایت می‌کند؛ دستیار در ۱۷ درخواست واقعی هیچ قیمت ساختگی نگفت؛ ۱۰۶ از ۱۰۶ آزمون رِدتیم و ۴۰۳ تست خودکار پاس شده‌اند.
+
+| What | Result | Source |
+|---|---|---|
+| Catalogue search, 61 labelled Persian requests (no model) | precision@5 **95.8%**, success@5 **96.3%**, hard constraints (budget, area, open now, in-person credit) **100%**; release 4.2.0 baseline: 83.8% / 87% | [docs/BENCHMARK.md](docs/BENCHMARK.md) · [retrieval.json](bench/results/retrieval.json) · [retrieval-baseline.json](bench/results/retrieval-baseline.json) |
+| «Not in Torob» requests (7) | no false match **100%**; the gap is stated **100%** | [docs/BENCHMARK.md](docs/BENCHMARK.md) |
+| End to end with the agent (17 requests) | **17/17** answered; cards in the right category and within the constraints **100%**; citations valid **100%**; hallucinated prices **0%** (44 price mentions); p50 / p95 11.1 s / 27.2 s | [e2e.json](bench/results/e2e.json) |
+| Red team (104 attacks + 2 false-positive checks) | **106/106** with the guard; 50/86 on the same model-facing checks without it | [redteam/REPORT.md](redteam/REPORT.md) · [results-hardened.json](redteam/results-hardened.json) |
+| Automated tests | **403 passed** against the real catalogue; CI runs the 312 that need no dataset | [green CI run](https://github.com/moazeniz/bazargard/actions/runs/39962243407) |
+| Dataset | 225,903 products · 331,506 offers · 6,476 shops | [dataset.json](bench/results/dataset.json) |
+
+Reproduce: `make test` (CI suite) · `make test-full TEST_CATALOG=$PWD/data/catalog.db` (all 403) · `make bench` (search benchmark, no model calls).
 
 ---
 
@@ -152,7 +167,7 @@ make test-full TEST_CATALOG=$PWD/data/catalog.db  # full suite against the real 
 make lint                                         # byte-compile + shell syntax
 ```
 
-386 tests in `tests/` (all pass against the real catalogue): 308 run without the dataset (CI) and 78 more need `TEST_CATALOG`. Coverage includes memory/corrections and session isolation, credit eligibility, Persian normalisation, schedules, hard-filter preservation in multi-hop retrieval, immutable snapshots, seller simulations, SSRF guards in public research, the guard against an attack corpus plus false positives on 77 real shopper messages, LLM provider switching and fallback (fake transport), observability and the job queue, approval/rollback flows of the ops workspace, and Liara API contracts (mocked transport).
+403 tests in `tests/` (all pass against the real catalogue): 312 run without the dataset (CI) and 91 more need `TEST_CATALOG`. Coverage includes memory/corrections and session isolation, credit eligibility, Persian normalisation, schedules, hard-filter preservation in multi-hop retrieval, immutable snapshots, seller simulations, SSRF guards in public research, the guard against an attack corpus plus false positives on 77 real shopper messages, LLM provider switching and fallback (fake transport), observability and the job queue, approval/rollback flows of the ops workspace, and Liara API contracts (mocked transport).
 
 CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs lint + unit tests on Python 3.12, `npm ci && npm run build`, and a Docker image build.
 
