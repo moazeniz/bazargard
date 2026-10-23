@@ -1,5 +1,5 @@
 """Persian-normalized catalogue retrieval and evidence-aware ranking."""
-import csv, json, sqlite3, re, math, os, unicodedata
+import csv, json, sqlite3, re, math, os, unicodedata, functools
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -225,7 +225,7 @@ class Catalog:
         if price<=0:return False
         if p.get('budget_max_toman') is not None and price>p['budget_max_toman']:return False
         if p.get('budget_min_toman') is not None and price<p['budget_min_toman']:return False
-        if p.get('brand') and normalize(p['brand']) not in normalize(d.get('brand_name'))+' '+normalize(d.get('persian_title')):return False
+        if self.brand_blocks(d,p):return False
         if p.get('lat') is not None and p.get('lon') is not None:
             if p.get('radius_km') and (d['distance_km'] is None or d['distance_km']>p['radius_km']):return False
         elif p.get('neighborhood') and not any(normalize(p['neighborhood']) in normalize(d.get(k)) for k in ('location_label','address')):return False
@@ -255,7 +255,56 @@ class Catalog:
         found.sort(key=lambda x:x.get('match_group',(0,)))
         return found
 
-    def search(self,query='',profile=None,limit=12,exclude_shops=None,product_ids=None,sort='balanced',at=None,exclude_pairs=None,seller_events=None,offer_ids=None,discovery=False,full=False,shop_id=None):
+    # ---- a saved brand belongs to the product family it was asked for
+    def family(self,text,brand=''):
+        """Top catalogue categories of the product noun in `text` (brand words and model codes ignored)."""
+        return self._family(normalize(text or ''),normalize(brand or ''))
+    @functools.lru_cache(maxsize=1024)
+    def _family(self,text,brand):
+        skip=set(brand.split());terms=[t for t in text.split() if t not in skip and not re.search(r'\d',t)][:6]
+        with self.conn() as c:
+            while terms:
+                try:rows=[r[0] for r in c.execute('select p.category_name,count(*) n from product_fts f join products p on p.rowid=f.rowid where product_fts match ? group by 1 order by n desc limit 25',(self.fts_match(terms),))]
+                except sqlite3.Error:rows=[]
+                # Categories named by the query's own words (گوشی → «گوشی موبایل») beat merely frequent ones (screen protectors).
+                named=[r for r in rows if set(normalize(r).replace('،',' ').split())&set(terms)]
+                if rows:return frozenset(named[:4] or rows[:3])
+                terms=terms[:-1]
+        return frozenset()
+    @functools.lru_cache(maxsize=256)
+    def _brand_categories(self,brand):
+        with self.conn() as c:
+            return frozenset(r[0] for r in c.execute('select category_name,count(*) n from products where brand_norm like ? or title_norm like ? group by 1 order by n desc limit 15',('%'+brand+'%',)*2))
+    def brand_family(self,brand,scope=''):
+        """Categories a brand preference constrains: those of the request that set it, else where the brand sells."""
+        return (self.family(scope,brand) if scope else frozenset()) or self._brand_categories(normalize(brand))
+    def brand_blocks(self,d,p):
+        b=p.get('brand')
+        if not b or normalize(b) in normalize(d.get('brand_name'))+' '+normalize(d.get('persian_title')):return False
+        fam=self.brand_family(b,p.get('brand_scope') or '')
+        return not fam or d.get('category_name') in fam
+
+    def search(self,query='',profile=None,*args,**kw):
+        """Catalogue search. A saved brand never silently empties a search: it is skipped for
+        another product family and relaxed (and reported) when it alone leaves no offer."""
+        p=dict(profile or {});brand=p.get('brand');note=None
+        pids=kw.get('product_ids') or (args[2] if len(args)>2 else None)
+        scoped=bool(brand and str(query or '').strip() and not pids and not kw.get('offer_ids'))
+        if scoped:
+            asked=self.family(query,brand)
+            if asked and not asked&self.brand_family(brand,p.get('brand_scope') or ''):
+                p['brand']=None;note={'key':'brand','value':brand,'reason':'other_category'}
+        result=self._search(query,p,*args,**kw)
+        if scoped and p.get('brand') and not result.get('offers'):
+            loose=self._search(query,dict(p,brand=None),*args,**kw)
+            if loose.get('offers'):result=loose;note={'key':'brand','value':brand,'reason':'no_match'}
+        if note:
+            result['relaxed_preferences']=[note]
+            result['preference_notice']=(f'برند «{brand}» که برای درخواست دیگری گفته بودید، روی این جست‌وجو اعمال نشد.' if note['reason']=='other_category'
+                                         else f'با برند «{brand}» نتیجه‌ای نبود؛ نتایج بدون شرط برند نمایش داده شده‌اند.')
+        return result
+
+    def _search(self,query='',profile=None,limit=12,exclude_shops=None,product_ids=None,sort='balanced',at=None,exclude_pairs=None,seller_events=None,offer_ids=None,discovery=False,full=False,shop_id=None):
         p=profile or {};limit=min(max(int(limit),1),3000 if full else 30);corrected=[]
         args=[]; clauses=['effective_price>0'];rank='0.0';join=''
         if full:discovery=False
